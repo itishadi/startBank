@@ -1,0 +1,30 @@
+﻿@page
+@model startBank.Pages.CustomerModel
+@{
+}
+<h1>Alla Customers</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">NationalID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Adress</th>
+            <th scope="col">City</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var c in Model.Customers)
+        {
+            <tr>
+                <td>@c.Id</td>
+                <td>@c.NationalID</td>
+                <td>@c.Name</td>
+                <td>@c.Adress</td>
+                <td>@c.City</td>
+            </tr>
+        }
+    </tbody>
+</table>
