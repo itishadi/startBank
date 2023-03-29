@@ -16,13 +16,19 @@ namespace startBank.Services
 
             var query = _dbContext.Customers.AsQueryable();
 
+            if (sortColumn == "NationalID")
+                if (sortOrder == "asc")
+                    query = query.OrderBy(s => s.NationalId);
+                else if (sortOrder == "desc")
+                    query = query.OrderByDescending(s => s.NationalId);
+
             if (sortColumn == "Name")
                 if (sortOrder == "asc")
                     query = query.OrderBy(s => s.Givenname);
                 else if (sortOrder == "desc")
                     query = query.OrderByDescending(s => s.Givenname);
 
-            if (sortColumn == "Adress")
+            if (sortColumn == "Address")
                 if (sortOrder == "asc")
                     query = query.OrderBy(s => s.Streetaddress);
                 else if (sortOrder == "desc")
@@ -40,7 +46,7 @@ namespace startBank.Services
                 Id = s.CustomerId,
                 NationalID = s.NationalId,
                 Name = s.Givenname,
-                Adress = s.Streetaddress,
+                Address = s.Streetaddress,
                 City = s.City
             }).ToList();
 

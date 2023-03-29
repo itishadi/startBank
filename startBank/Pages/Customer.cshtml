@@ -77,16 +77,16 @@
                 </a>
             </th>
             <th scope="col">
-                Adress
+                Address
                 <a asp-page="/Customer"
-                   asp-route-sortColumn="Adress"
+                   asp-route-sortColumn="Address"
                    asp-route-sortOrder="asc"
                    style="text-decoration:none">
                     <i class="fa-solid fa-angle-up"></i>
 
                 </a>
                 <a asp-page="/Customer"
-                   asp-route-sortColumn="Adress"
+                   asp-route-sortColumn="Address"
                    asp-route-sortOrder="desc"
                    style="text-decoration:none">
                     <i class="fa-solid fa-angle-down"></i>
@@ -111,7 +111,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="CustomerHover">
 
         @foreach (var c in Model.Customers)
         {
@@ -119,9 +119,9 @@
                 <td>@c.Id</td>
                 <td>@c.NationalID</td>
                 <td>@c.Name</td>
-                <td>@c.Adress</td>
+                <td>@c.Address</td>
                 <td>@c.City</td>
-                <td><a asp-page="/OneCustomer" asp-route-id="@c.Id" class="btn btn-primary">View</a></td>
+                <td><a asp-page="/OneCustomer" asp-route-id="@c.Id" style="background:black; border:1px solid orange" class="btn btn-primary">View</a></td>
             </tr>
         }
     </tbody>

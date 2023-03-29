@@ -1,4 +1,29 @@
 ﻿@page
+@using startBank.BankAppDatas;
 @model startBank.Pages.ViewModel.SwedenModel
 @{
+    ViewData["Title"] = "Richest people in Sweden";
 }
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>NetWorth</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+           
+            // Visa varje persons namn och nettovärde i tabellen
+            //foreach (var person in BankAppDataContext)
+            //{
+            //    < tr >
+            //    < td > @person.Givenname </ td >
+            //    < td > @person.City </ td >
+            //    </ tr >
+            //}
+        }
+        
+    </tbody>
+</table>
