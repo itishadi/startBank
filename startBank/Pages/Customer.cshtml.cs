@@ -1,16 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using startBank.BankAppDatas;
+using startBank.Services;
 
 namespace startBank.Pages
 {
     public class CustomerModel : PageModel
     {
-        private readonly BankAppDataContext _dbContext;
+        private readonly ICustomerService _customerService;
 
-        public CustomerModel(BankAppDataContext dbContext)
+        public CustomerModel(ICustomerService customerService)
         {
-            _dbContext = dbContext;
+            _customerService = customerService;
         }
 
         public class CustomerViewModel
@@ -22,19 +23,23 @@ namespace startBank.Pages
             public string City { get; set; }
         }
 
-        public List<CustomerViewModel> Customers { get; set; } = new List<CustomerViewModel>();
+        public List<CustomerViewModel> Customers { get; set; }
 
-        public void OnGet() 
+        public void OnGet(string sortColumn, string sortOrder) 
         {
-            Customers = _dbContext.Customers.Select(s => new CustomerViewModel
-            {
-                // kundnummer och personnummer, namn, adress, city 
-                Id = s.CustomerId,
-                NationalID = s.NationalId,
-                Name = s.Givenname,
-                Adress = s.Streetaddress,
-                City = s.City
-            }).ToList();
+            //    Customers = _customerService.GetCustomers.Select(s => new CustomerViewModel
+            //    {
+            //        // kundnummer och personnummer, namn, adress, city 
+            //        Id = s.CustomerId,
+            //        NationalID = s.NationalId,
+            //        Name = s.Givenname,
+            //        Adress = s.Streetaddress,
+            //        City = s.City
+            //    }).ToList();
+            //}
+            Customers = _customerService.GetCustomers(sortColumn, sortOrder);
+
+
         }
     }
-}
+    }

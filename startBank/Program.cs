@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using startBank.BankAppDatas;
 using startBank.Data;
+using startBank.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ builder.Services.AddTransient<DataInitializer>();
 // Lägg till min DbContext
 builder.Services.AddDbContext<BankAppDataContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Lägg till min CustomerService
+builder.Services.AddTransient<ICustomerService, CustomerService>();
 
 var app = builder.Build();
 

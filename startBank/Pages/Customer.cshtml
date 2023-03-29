@@ -2,7 +2,9 @@
 @model startBank.Pages.CustomerModel
 @{
 }
-<h1>Alla Customers</h1>
+
+
+@*<h1>Alla Customers</h1>
 
 <table class="table table-striped">
     <thead>
@@ -12,6 +14,101 @@
             <th scope="col">Name</th>
             <th scope="col">Adress</th>
             <th scope="col">City</th>
+            <th></th>
+        </tr>
+
+    </thead>
+    <tbody>
+
+        @foreach (var c in Model.Customers)
+        {
+            <tr>
+                <td>@c.Id</td>
+                <td>@c.NationalID</td>
+                <td>@c.Name</td>
+                <td>@c.Adress</td>
+                <td>@c.City</td>
+                <td>
+                    <a asp-page="View" asp-route-Id="Customers" class="btn btn-primary">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    
+</table>*@
+
+
+<h1 style="padding-top:100px;">Customers</h1>
+
+<table class="table table-#373b3e" style="color:white;">
+    <thead>
+        <tr>
+            <th scope="col"> Id</th>
+            <th scope="col">
+                NationalID
+                <a asp-page="/Customer"
+                   asp-route-sortColumn="NationalID"
+                   asp-route-sortOrder="asc"
+                   style="text-decoration:none">
+                    <i class="fa-solid fa-angle-up"></i>
+
+                </a>
+                <a asp-page="/Customer"
+                   asp-route-sortColumn="NationalID"
+                   asp-route-sortOrder="desc"
+                   style="text-decoration:none">
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+            </th>
+            <th scope="col">
+                 Name
+                <a asp-page="/Customer"
+                   asp-route-sortColumn="Name"
+                   asp-route-sortOrder="asc"
+                   style="text-decoration:none">
+                    <i class="fa-solid fa-angle-up"></i>
+
+                </a>
+                <a asp-page="/Customer"
+                   asp-route-sortColumn="Name"
+                   asp-route-sortOrder="desc"
+                   style="text-decoration:none">
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+            </th>
+            <th scope="col">
+                Adress
+                <a asp-page="/Customer"
+                   asp-route-sortColumn="Adress"
+                   asp-route-sortOrder="asc"
+                   style="text-decoration:none">
+                    <i class="fa-solid fa-angle-up"></i>
+
+                </a>
+                <a asp-page="/Customer"
+                   asp-route-sortColumn="Adress"
+                   asp-route-sortOrder="desc"
+                   style="text-decoration:none">
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+            </th>
+            <th scope="col">
+                City
+                <a asp-page="/Customer"
+                   asp-route-sortColumn="City"
+                   asp-route-sortOrder="asc"
+                   style="text-decoration:none">
+                    <i class="fa-solid fa-angle-up"></i>
+
+                </a>
+                <a asp-page="/Customer"
+                   asp-route-sortColumn="City"
+                   asp-route-sortOrder="desc"
+                   style="text-decoration:none">
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +121,7 @@
                 <td>@c.Name</td>
                 <td>@c.Adress</td>
                 <td>@c.City</td>
+                <td><a asp-page="/OneCustomer" asp-route-id="@c.Id" class="btn btn-primary">View</a></td>
             </tr>
         }
     </tbody>

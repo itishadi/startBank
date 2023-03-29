@@ -8,10 +8,10 @@ namespace startBank.Pages
     {
 
         private readonly BankAppDataContext _dbContext;
-        public string CustomerNId { get; set; }
+        public string NationalID { get; set; }
         public string CustomerName { get; set; }
-        public string CustomerCity { get; set; }
-        public string CustomerCountry { get; set; }
+        public string Adress { get; set; }
+        public string City { get; set; }
 
 
 
@@ -22,10 +22,10 @@ namespace startBank.Pages
 
         public void OnGet(int id)
         {
-            CustomerNId = _dbContext.Customers.First(s => s.CustomerId == id).NationalId;
+            NationalID = _dbContext.Customers.First(s => s.CustomerId == id).NationalId;
             CustomerName = _dbContext.Customers.First(s => s.CustomerId == id).Givenname;
-            CustomerCity = _dbContext.Customers.First(s => s.CustomerId == id).City;
-            CustomerCountry = _dbContext.Customers.First(s => s.CustomerId == id).Country;
+            Adress = _dbContext.Customers.First(s => s.CustomerId == id).Streetaddress;
+            City = _dbContext.Customers.First(s => s.CustomerId == id).City;
 
         }
     }
