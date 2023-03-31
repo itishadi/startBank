@@ -4,41 +4,22 @@
 }
 
 
-@*<h1>Alla Customers</h1>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">NationalID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Adress</th>
-            <th scope="col">City</th>
-            <th></th>
-        </tr>
-
-    </thead>
-    <tbody>
-
-        @foreach (var c in Model.Customers)
-        {
-            <tr>
-                <td>@c.Id</td>
-                <td>@c.NationalID</td>
-                <td>@c.Name</td>
-                <td>@c.Adress</td>
-                <td>@c.City</td>
-                <td>
-                    <a asp-page="View" asp-route-Id="Customers" class="btn btn-primary">View</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-    
-</table>*@
 
 
-<h1 style="padding-top:100px;">Customers</h1>
+<h1 style="padding-top:65px;">Customers</h1>
+
+<h3>Page @Model.CurrentPage</h3>
+
+
+<form method="get">
+    <input asp-for="@Model.Q" />
+    <input type="hidden" asp-for="@Model.OneCustomerId" />
+    <button type="submit" class="get-started-btn scrollto" style=" background: black">
+        <i class="fas fa-search"></i>
+    </button>
+</form>
+
+
 
 <table class="table table-#373b3e" style="color:white;">
     <thead>
@@ -47,6 +28,7 @@
             <th scope="col">
                 NationalID
                 <a asp-page="/Customer"
+                   asp-route-q="@Model.Q"
                    asp-route-sortColumn="NationalID"
                    asp-route-sortOrder="asc"
                    style="text-decoration:none">
@@ -54,6 +36,7 @@
 
                 </a>
                 <a asp-page="/Customer"
+                   asp-route-q="@Model.Q"
                    asp-route-sortColumn="NationalID"
                    asp-route-sortOrder="desc"
                    style="text-decoration:none">
@@ -61,8 +44,9 @@
                 </a>
             </th>
             <th scope="col">
-                 Name
+                Name
                 <a asp-page="/Customer"
+                   asp-route-q="@Model.Q"
                    asp-route-sortColumn="Name"
                    asp-route-sortOrder="asc"
                    style="text-decoration:none">
@@ -70,6 +54,7 @@
 
                 </a>
                 <a asp-page="/Customer"
+                   asp-route-q="@Model.Q"
                    asp-route-sortColumn="Name"
                    asp-route-sortOrder="desc"
                    style="text-decoration:none">
@@ -79,6 +64,7 @@
             <th scope="col">
                 Address
                 <a asp-page="/Customer"
+                   asp-route-q="@Model.Q"
                    asp-route-sortColumn="Address"
                    asp-route-sortOrder="asc"
                    style="text-decoration:none">
@@ -86,6 +72,7 @@
 
                 </a>
                 <a asp-page="/Customer"
+                   asp-route-q="@Model.Q"
                    asp-route-sortColumn="Address"
                    asp-route-sortOrder="desc"
                    style="text-decoration:none">
@@ -95,6 +82,7 @@
             <th scope="col">
                 City
                 <a asp-page="/Customer"
+                   asp-route-q="@Model.Q"
                    asp-route-sortColumn="City"
                    asp-route-sortOrder="asc"
                    style="text-decoration:none">
@@ -102,6 +90,7 @@
 
                 </a>
                 <a asp-page="/Customer"
+                   asp-route-q="@Model.Q"
                    asp-route-sortColumn="City"
                    asp-route-sortOrder="desc"
                    style="text-decoration:none">
@@ -112,7 +101,7 @@
         </tr>
     </thead>
     <tbody class="CustomerHover">
-
+       
         @foreach (var c in Model.Customers)
         {
             <tr>
@@ -121,8 +110,43 @@
                 <td>@c.Name</td>
                 <td>@c.Address</td>
                 <td>@c.City</td>
-                <td><a asp-page="/OneCustomer" asp-route-id="@c.Id" style="background:black; border:1px solid orange" class="btn btn-primary">View</a></td>
+                <td><a asp-page="/OneCustomer" asp-route-id="@c.Id" class="get-started-btn scrollto">View</a></td>
             </tr>
         }
+        <td></td>
+        <td></td>
+        <td></td>
+      
+    <td style=" display:flex; justify-content:center;">
+
+        @if (Model.CurrentPage != 1)
+        {
+
+            <a class="get-started-btn scrollto"
+           asp-page="/Customer"
+           asp-route-oneCustomerId="@Model.Customers"
+           asp-route-q="@Model.Q"
+           asp-route-sortColumn="@Model.SortColumn"
+           asp-route-sortOrder="@Model.SortOrder"
+           asp-route-p="@(Model.CurrentPage-1)">
+                Back
+            </a>
+        }
+        @if (Model.Customers.Any() && Model.CurrentPage != null)
+        {
+
+            <a class="get-started-btn scrollto"
+           asp-page="/Customer"
+           asp-route-oneCustomerId="@Model.OneCustomerId"
+           asp-route-q="@Model.Q"
+           asp-route-sortColumn="@Model.SortColumn"
+           asp-route-sortOrder="@Model.SortOrder"
+           asp-route-pageNo="@(Model.CurrentPage+1)"
+           asp-route-p="@(Model.CurrentPage + 1)">
+                Next
+            </a>
+        }
+   
+                </td>
     </tbody>
 </table>

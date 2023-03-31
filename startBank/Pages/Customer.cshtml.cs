@@ -22,22 +22,23 @@ namespace startBank.Pages
             public string Address { get; set; }
             public string City { get; set; }
         }
-
         public List<CustomerViewModel> Customers { get; set; }
+        public int OneCustomerId { get; set; }
+        public int CurrentPage { get; set; }
+        public string SortColumn { get; set; }
+        public string SortOrder { get; set; }
+        public string Q { get; set; }
 
-        public void OnGet(string sortColumn, string sortOrder) 
+        public void OnGet(int oneCustomerId, string sortColumn, string sortOrder, int p, string q) 
         {
-            //    Customers = _customerService.GetCustomers.Select(s => new CustomerViewModel
-            //    {
-            //        // kundnummer och personnummer, namn, adress, city 
-            //        Id = s.CustomerId,
-            //        NationalID = s.NationalId,
-            //        Name = s.Givenname,
-            //        Adress = s.Streetaddress,
-            //        City = s.City
-            //    }).ToList();
-            //}
-            Customers = _customerService.GetCustomers(sortColumn, sortOrder);
+            Q = q;
+            SortColumn = sortColumn;
+            SortOrder = sortOrder;
+            if (p == 0)
+                p = 1;
+            CurrentPage = p;
+            OneCustomerId = oneCustomerId;
+            Customers = _customerService.GetCustomers(oneCustomerId, sortColumn, sortOrder, p, q);
 
 
         }

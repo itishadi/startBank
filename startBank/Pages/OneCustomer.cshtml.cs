@@ -19,9 +19,11 @@ namespace startBank.Pages
         {
             _dbContext = dbContext;
         }
+        public int ID { get; set; }
 
         public void OnGet(int id)
         {
+            ID = id;
             NationalID = _dbContext.Customers.First(s => s.CustomerId == id).NationalId;
             CustomerName = _dbContext.Customers.First(s => s.CustomerId == id).Givenname;
             Adress = _dbContext.Customers.First(s => s.CustomerId == id).Streetaddress;
