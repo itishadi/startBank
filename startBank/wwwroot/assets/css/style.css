@@ -172,8 +172,8 @@ h6 {
 }
 
 .get-started-btn:hover {
-  background: #ffbb38;
-  color: #343a40;
+    background: #ffbb38;
+    color: #343a40;
 }
 
 @media (max-width: 992px) {
@@ -520,11 +520,32 @@ h6 {
         }
 
 /*CustomerOne*/
+/*.CustomerOne {
+    display: flex;
+    justify-content:center;
+    align-self:end;
+    color:white;
+}*/
+
+.customer-container {
+    height: 60vh;
+    background-color: black;
+    padding: 50px;
+}
+
 .CustomerOne {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content:center;
+    align-content:end;
+    border: 1px solid orange;
+    color: white;
+    margin: 10px 0;
 }
+
+
+
+
+
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/

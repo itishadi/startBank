@@ -1,5 +1,6 @@
 ﻿    using startBank.BankAppDatas;
-using static startBank.Pages.CustomerModel;
+using startBank.Models;
+
 
 namespace startBank.Services
 {
@@ -11,7 +12,26 @@ namespace startBank.Services
         {
             _dbContext = dbContext;
         }
-        public List<CustomerViewModel> GetCustomers(
+
+       public CustomerModel GetCustomer(int customerId)
+        {
+            var customerDetails = _dbContext.Customers.Join(_dbContext.Accounts, x => x.CustomerId, y => y.AccountId, (x, y) => new
+            {
+                Customer = x,
+                Account = y
+            }).Where(xy=> xy.Customer.CustomerId == customerId).FirstOrDefault();
+
+            var customerModel = new CustomerModel
+            {
+                Id = customerDetails.Customer.CustomerId,
+                Name = customerDetails.Customer.Givenname,
+                Balance = customerDetails.Account.Balance,
+
+            };
+            return customerModel;
+        }
+
+        public List<CustomerModel> GetCustomers(
             int oneCustomerId, string sortColumn, string sortOrder, int p, string q)
         {
 
@@ -61,11 +81,11 @@ namespace startBank.Services
                     query = query.OrderByDescending(s => s.City);
 
 
-            var itemIndex = (p - 1) * 5; // 5 är page storlek
+            var itemIndex = (p - 1) * 48; // 5 är page storlek
 
             query = query.Skip(itemIndex);
-            query = query.Take(5); // 5 är page storlek
-            var Customers = query.Select(s => new CustomerViewModel
+            query = query.Take(48); // 5 är page storlek
+            var Customers = query.Select(s => new CustomerModel
             {
                 // kundnummer och personnummer, namn, adress, city 
                 Id = s.CustomerId,

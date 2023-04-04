@@ -1,0 +1,16 @@
+﻿body {
+}
+
+#button {
+    display: flex;
+    justify-content:space-between;
+}
+
+.buttonNext {
+    display: flex;
+    justify-content: end;
+}
+
+.buttonPrev {
+    justify-content: start;
+}

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using startBank.BankAppDatas;
-using static startBank.Pages.CustomerModel;
 
 namespace startBank.Pages
 {

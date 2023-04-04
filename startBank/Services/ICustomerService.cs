@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using startBank.BankAppDatas;
-using static startBank.Pages.CustomerModel;
+using startBank.Models;
 
 namespace startBank.Services
 {
     public interface ICustomerService
     {
-      List<CustomerViewModel> GetCustomers(int oneCustomerId, string sortColumn, string sortOrder, int p, string q);
+      List<CustomerModel> GetCustomers(int oneCustomerId, string sortColumn, string sortOrder, int p, string q);
+
+        CustomerModel GetCustomer(int customerId);
 
     }
+
 }
