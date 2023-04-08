@@ -1,9 +1,9 @@
 ﻿@page
-@using startBank.BankAppDatas;
-@model startBank.Pages.ViewModel.SwedenModel
+@model startBank.Pages.ViewModel.NorwayModel
 @{
 }
-<h1 style="padding-top:65px;">Top 10 Customers in Sweden</h1>
+
+<h1 style="padding-top:65px;">Top 10 Customers in Norway</h1>
 <table class="table table-#373b3e" style="color:white;">
     <thead>
         <tr>
@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var customer in Model.TopTenSweden)
+        @foreach (var customer in Model.TopTenNorway)
         {
             <tr>
                 <td>@customer.Name</td>
@@ -24,4 +24,3 @@
     </tbody>
     <td><a asp-page="/index" class="get-started-btn scrollto">Back</a></td>
 </table>
-

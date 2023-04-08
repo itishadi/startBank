@@ -1,0 +1,45 @@
+﻿@*@page
+@model startBank.Pages.ViewModel.DenmarkModel
+@{
+}
+<ul class="table table-#373b3e" style="color:white;">
+    <li>Top 10 Customers in Denmark:</li>
+    @foreach (var customer in Model.TopTenDenmark)
+    {
+        <li scope="col">
+            @customer.Name
+            @customer.LastName - Balance:
+            @customer.Balance
+        </li>
+        <p>-----------------------------------------------------</p>
+    }
+</ul>
+
+
+*@
+@page
+@model startBank.Pages.ViewModel.DenmarkModel
+@{
+}
+<h1 style="padding-top:65px;">Top 10 Customers in Denmark</h1>
+<table class="table table-#373b3e" style="color:white;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model.TopTenDenmark)
+        {
+            <tr>
+                <td>@customer.Name</td>
+                <td>@customer.LastName</td>
+                <td>@customer.Balance</td>
+            </tr>
+        }
+    </tbody>
+    <td><a asp-page="/index" class="get-started-btn scrollto">Back</a></td>
+
+</table>

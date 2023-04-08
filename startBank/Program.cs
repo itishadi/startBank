@@ -25,6 +25,7 @@ builder.Services.AddDbContext<BankAppDataContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Lägg till min CustomerService
 builder.Services.AddTransient<ICustomerService, CustomerService>();
+builder.Services.AddTransient<ICountryService, CountryService>();
 
 var app = builder.Build();
 

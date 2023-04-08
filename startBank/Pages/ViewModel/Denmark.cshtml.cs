@@ -1,32 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using startBank.BankAppDatas;
 using startBank.Models;
 using startBank.Services;
 
 namespace startBank.Pages.ViewModel
 {
-    public class SwedenModel : PageModel
+    public class DenmarkModel : PageModel
     {
         private readonly ICountryService _countryService;
-
-        public SwedenModel(ICountryService countryService)
+        public DenmarkModel(ICountryService countryService)
         {
             _countryService = countryService;
         }
-        public List<CustomerModel> TopTenSweden { get; set; }
-
+        public List<CustomerModel> TopTenDenmark { get; set; }
         public void OnGet()
         {
-            string[] countries = { "Sweden" };
+            string[] countries = { "Denmark" };
             List<List<CustomerModel>> top10Customers = new List<List<CustomerModel>>();
             foreach (string country in countries)
             {
                 top10Customers.Add(_countryService.GetTopCustomers(country));
             }
-            TopTenSweden = top10Customers[0];
+            TopTenDenmark = top10Customers[0];
         }
-
-     
     }
 }

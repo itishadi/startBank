@@ -15,14 +15,6 @@ namespace startBank.Pages
             _customerService = customerService;
         }
 
-        //public class CustomerViewModel
-        //{
-        //    public int Id { get; set; }
-        //    public string NationalID { get; set; }
-        //    public string Name { get; set; }
-        //    public string Address { get; set; }
-        //    public string City { get; set; }
-        //}
         public List<CustomerModel> Customers { get; set; }
         public int OneCustomerId { get; set; }
         public int CurrentPage { get; set; }
