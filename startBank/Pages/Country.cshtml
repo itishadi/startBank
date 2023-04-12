@@ -1,4 +1,4 @@
-﻿@*@page
+﻿@page
 @model startBank.Pages.Country
 @{
  
@@ -6,26 +6,4 @@
 
 
 
-<ul>
-    <li>Top 10 Customers in Sweden:</li>
-    @foreach (var customer in Model.TopTenSweden)
-    {
-        <li>@customer.Name @customer.LastName - Balance: @customer.Balance</li>
-    }
-    <li>Top 10 Customers in Norway:</li>
-    @foreach (var customer in Model.TopTenNorway)
-    {
-        <li>@customer.Name @customer.LastName - Balance: @customer.Balance</li>
-    }
-    <li>Top 10 Customers in Denmark:</li>
-    @foreach (var customer in Model.TopTenDenmark)
-    {
-        <li>@customer.Name @customer.LastName - Balance: @customer.Balance</li>
-    }
-    <li>Top 10 Customers in Finland:</li>
-    @foreach (var customer in Model.TopTenFinland)
-    {
-        <li>@customer.Name @customer.LastName - Balance: @customer.Balance</li>
-    }
-</ul>
-*@
+

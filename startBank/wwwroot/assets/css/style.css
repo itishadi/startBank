@@ -71,6 +71,12 @@ h6 {
   visibility: visible;
   opacity: 1;
 }
+/*------------------------------------------------------------------------------------------*/
+#CustomerHoverCountry:hover {
+    background-color: #ffc451;
+    color: black;
+}
+
 
 /*--------------------------------------------------------------
 # Preloader

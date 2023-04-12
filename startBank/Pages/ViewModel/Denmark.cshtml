@@ -22,7 +22,7 @@
 @{
 }
 <h1 style="padding-top:65px;">Top 10 Customers in Denmark</h1>
-<table class="table table-#373b3e" style="color:white;">
+<table  class="table table-#373b3e" style="color:white;">
     <thead>
         <tr>
             <th>Name</th>
@@ -33,7 +33,7 @@
     <tbody>
         @foreach (var customer in Model.TopTenDenmark)
         {
-            <tr>
+            <tr id="CustomerHoverCountry">
                 <td>@customer.Name</td>
                 <td>@customer.LastName</td>
                 <td>@customer.Balance</td>
