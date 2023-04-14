@@ -25,8 +25,17 @@ namespace startBank.Services
             {
                 Id = customerDetails.Customer.CustomerId,
                 Name = customerDetails.Customer.Givenname,
+                LastName = customerDetails.Customer.Surname,
                 Balance = customerDetails.Account.Balance,
-
+                NationalID = customerDetails.Customer.NationalId,
+                Address = customerDetails.Customer.Streetaddress,
+                Country = customerDetails.Customer.Country,
+                Phone = customerDetails.Customer.Telephonenumber,
+                Email = customerDetails.Customer.Emailaddress,
+                TotalBalance = customerDetails.Account.Balance,
+                AccountId = customerDetails.Account.AccountId,
+                City = customerDetails.Customer.City,
+                Gender = customerDetails.Customer.Gender,
             };
             return customerModel;
         }

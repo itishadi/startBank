@@ -6,6 +6,7 @@ using startBank.Services;
 
 namespace startBank.Pages
 {
+    [BindProperties]
     public class OneCustomerModel : PageModel
     {
 

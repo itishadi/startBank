@@ -1,0 +1,40 @@
+﻿@page
+@model startBank.Pages.Account.IndexModel
+@{
+}
+<div class="card">
+    <div class="card-header">
+        <h1>Alla Accounts</h1>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tr>
+                <th>TransactionId</th>
+                <th>AccountId</th>
+                <th>Date</th>
+                <th>Operation</th>
+                <th>Balance</th>
+                <th></th>
+                <th></th>
+            </tr>
+            @foreach (var acc in Model.Accounts)
+            {
+                <tr>
+                 
+                    <td>@acc.TransactionId</td>
+                    <td>@acc.AccountId</td>
+                    <td>@acc.Date</td>
+                    <td>@acc.Operation</td>
+                    <td>@acc.Balance</td>
+                    <td>
+                        <a asp-page="Withdraw" asp-route-accountId="@acc.AccountId"><i class='bx bx-money-withdraw'></i></a>
+                    </td>
+                    <td>
+                        <a asp-page="Deposit" asp-route-accountId="@acc.AccountId"><i class='bx bx-plus-circle'></i></a>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</div>

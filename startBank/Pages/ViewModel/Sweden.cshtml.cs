@@ -25,6 +25,7 @@ namespace startBank.Pages.ViewModel
                 top10Customers.Add(_countryService.GetTopCustomers(country));
             }
             TopTenSweden = top10Customers[0];
+
         }
 
      

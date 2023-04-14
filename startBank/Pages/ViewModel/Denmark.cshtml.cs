@@ -22,6 +22,7 @@ namespace startBank.Pages.ViewModel
                 top10Customers.Add(_countryService.GetTopCustomers(country));
             }
             TopTenDenmark = top10Customers[0];
+
         }
     }
 }

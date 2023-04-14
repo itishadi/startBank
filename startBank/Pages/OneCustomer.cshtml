@@ -29,22 +29,32 @@
                     <div id="row">
                         <span class="col-sm-12"><h5>John Doe</h5></span>
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <p>Web Designer / Develpor </p>
+                            <p> </p>
                             <ul>
-                                <li><span>@detail.Name</span></li>
-                                <li><span>Lorem ipsum</span></li>
-                                <li><span>Lorem ipsum</span></li>
-                                <li><span>Lorem ipsum</span></li>
+                                <li><span>Gender: @detail.Gender</span></li>
+                                <li><span>Name: @detail.Name</span></li>
+                                <li><span>Lastname: @detail.LastName</span></li>
+                                <li><span>National ID: @detail.NationalID</span></li>
+                                <li><span>Country: @detail.Country</span></li>
+                                <li><span>City: @detail.City</span></li>
+                                <li><span>Address: @detail.Address</span></li>
                             </ul>
                         </div>
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <p>Web Designer / Develpor </p>
+                            <p> </p>
                             <ul>
-                                <li><span>Lorem ipsum</span></li>
-                                <li><span>Lorem ipsum</span></li>
-                                <li><span>Lorem ipsum</span></li>
-                                <li><span>Lorem ipsum</span></li>
+                                <li><span>Email: @detail.Email</span></li>
+                                <li><span>Phone: @detail.Phone</span></li>
+                                <li><span>Account ID: @detail.AccountId</span></li>
+                                <li><span>Balance: @detail.Balance</span></li>
+                                <li><span>Total balance: @detail.TotalBalance</span></li>
                             </ul>
+                            <li class="sidenav__list-item">
+                                <a asp-page="/Account/Index" asp-route-accountId="@detail.AccountId"  > 
+                                    <i class="bx bx-pie-chart-alt-2"></i>
+                                    Accounts
+                                </a>
+                            </li>
                         </div>
                     </div>
                 </div>
