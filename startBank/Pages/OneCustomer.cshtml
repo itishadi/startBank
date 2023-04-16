@@ -25,9 +25,11 @@
                         <li class="img-name"><h1>@detail.Name</h1></li>
                     </div>
                 </div>
+
+
                 <div class="col-md-9">
                     <div id="row">
-                        <span class="col-sm-12"><h5>John Doe</h5></span>
+                        <span class="col-sm-12"><h5></h5></span>
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <p> </p>
                             <ul>
@@ -49,16 +51,31 @@
                                 <li><span>Balance: @detail.Balance</span></li>
                                 <li><span>Total balance: @detail.TotalBalance</span></li>
                             </ul>
-                            <li class="sidenav__list-item">
-                                <a asp-page="/Account/Index" asp-route-accountId="@detail.AccountId"  > 
-                                    <i class="bx bx-pie-chart-alt-2"></i>
-                                    Accounts
-                                </a>
-                            </li>
                         </div>
+              @*  <li class="sidenav__list-item">
+                    <td>
+                        <a asp-page="/Account/Index" asp-route-accountId="@detail.AccountId">
+                                    <i class="bx bx-pie-chart-alt-2">  History</i>
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-page="/Account/Withdraw" class='bx bx-money-withdraw' asp-route-accountId="@Model.OneCustomerDetail.AccountId">Withdraw</a>
+                        <a asp-page="/Account/Deposit" class='bx bx-plus-circle' asp-route-accountId="@Model.OneCustomerDetail.AccountId">Deposite</a>
+                    </td>
+                </li>*@
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<td>
+    <a asp-page="/Account/Index" asp-route-accountId="@detail.AccountId">
+        <i class="bx bx-pie-chart-alt-2 get-started-btn scrollto">  History</i>
+    </a>
+    <a asp-page="/Account/Withdraw" class='bx bx-money-withdraw get-started-btn scrollto' 
+    asp-route-accountId="@Model.OneCustomerDetail.AccountId">Withdraw</a>
+    <a asp-page="/Account/Deposit" class='bx bx-plus-circle get-started-btn scrollto' 
+    asp-route-accountId="@Model.OneCustomerDetail.AccountId">Deposite</a>
+</td>
