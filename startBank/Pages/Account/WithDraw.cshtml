@@ -2,9 +2,9 @@
 @model startBank.Pages.Account.WithDrawModel
 @{
 }
-<h1>Withdraw</h1>
+<h1 style="padding-top:40px; color:white">Withdraw</h1>
 
-<h3>Balance: @Model.Balance kr</h3>
+<h3 style="color:white">Balance: @Model.Balance kr</h3>
 
 @if (TempData["SuccessMessage"] != null)
 {
@@ -13,7 +13,7 @@
     </div>
 }
 
-<form method="post">
+<form method="post" style="color:white">
     <div class="form-group">
         <label asp-for="Amount">Amount</label>
         <input class="form-control" asp-for="Amount" />
@@ -37,5 +37,6 @@
     </div>
 
     <button type="submit" class="get-started-btn scrollto" style="background: black">Withdraw</button>
-
 </form>
+@*<td><a asp-page="/CustomerView" class="get-started-btn scrollto">back</a></td>*@
+

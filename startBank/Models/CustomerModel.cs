@@ -15,8 +15,11 @@ namespace startBank.Models
         public string Gender { get; set; }
         public string Country { get; set; }
         public int AccountId { get; set; }
+       
         public string City { get; set; }
         public decimal Balance { get; set; }
         public decimal TotalBalance { get; set; }
+        public int NumberOfAccount { get; set; }
+        public int NumberOfCustomer { get; set; }
     }
 }

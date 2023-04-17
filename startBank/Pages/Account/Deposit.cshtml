@@ -2,8 +2,8 @@
 @model startBank.Pages.Account.DepositModel
 @{
 }
-<h1>Deposit</h1>
-<h3>Balance: @Model.Balance kr</h3>
+<h1 style="padding-top:40px;color:white">Deposit</h>
+    <h3 style="color:white">Balance: @Model.Balance kr</h3>
 
 @if (TempData["SuccessMessage"] != null)
 {
@@ -12,7 +12,7 @@
     </div>
 }
 
-<form method="post">
+    <form method="post" style="color:white">
     <div class="form-group">
         <label asp-for="Amount">Amount</label>
         <input class="form-control" asp-for="Amount" />
@@ -28,6 +28,6 @@
         <input class="form-control" asp-for="Comment" />
         <span class="field-validation-error" asp-validation-for="Comment"></span>
     </div>
-    <button type="submit" class="get-started-btn scrollto">Deposit</button>
+        <button type="submit" class="get-started-btn scrollto" style="background: black">Deposit</button>
 </form>
 

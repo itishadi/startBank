@@ -2,13 +2,21 @@
 @model startBank.Pages.Account.IndexModel
 @{
 }
-<div class="card">
+<div class="card" style="background:black; color:white">
     <div class="card-header">
         <h1>Alla Accounts</h1>
     </div>
+    @foreach (var b in Model.Accounts)
+    {
+        <h3>
+            <a asp-page="Withdraw" asp-route-accountId="@b.AccountId"><i class='bx bx-money-withdraw'></i></a>
+            <a asp-page="Deposit" asp-route-accountId="@b.AccountId"><i class='bx bx-plus-circle'></i></a>
+        </h3>
+        break;
+    }
     <div class="card-body">
         <table class="table">
-            <tr>
+            <tr style="color:white">
                 <th>TransactionId</th>
                 <th>AccountId</th>
                 <th>Date</th>
@@ -17,22 +25,15 @@
                 <th></th>
                 <th></th>
             </tr>
-            @foreach (var acc in Model.Accounts)
+            @foreach (var acc in Model.Accounts.Take(10))
             {
-                <tr>
-                 
+                <tr class="CustomerHover">
+
                     <td>@acc.TransactionId</td>
                     <td>@acc.AccountId</td>
                     <td>@acc.Date</td>
                     <td>@acc.Operation</td>
                     <td>@acc.Balance</td>
-                    <td>
-                        <a asp-page="Withdraw" asp-route-accountId="@acc.AccountId"><i class='bx bx-money-withdraw'></i></a>
-                    </td>
-                    <td>
-                        <a asp-page="Deposit" asp-route-accountId="@acc.AccountId"><i class='bx bx-plus-circle'></i></a>
-                    </td>
-
                 </tr>
             }
         </table>
