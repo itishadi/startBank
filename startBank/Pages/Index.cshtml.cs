@@ -36,25 +36,25 @@ namespace startBank.Pages
             {
               _countryService.GetCustomerCount("Sweden"),
               _countryService.GetCustomerCount("Norway"),
-              _countryService.GetCustomerCount("Denmark"),
-              _countryService.GetCustomerCount("Finland")
+              _countryService.GetCustomerCount("Finland"),
+              _countryService.GetCustomerCount("Denmark")
              };
             Accounts = new List<int>
             {
               _countryService.GetAccountCount("Sweden"),
               _countryService.GetAccountCount("Norway"),
-              _countryService.GetAccountCount("Denmark"),
-              _countryService.GetAccountCount("Finland")
+              _countryService.GetAccountCount("Finland"),
+              _countryService.GetAccountCount("Denmark")
             };
             TotalCapital = new List<decimal>
             {
               _countryService.GetTotalCapital("Sweden"),
               _countryService.GetTotalCapital("Norway"),
-              _countryService.GetTotalCapital("Denmark"),
-              _countryService.GetTotalCapital("Finland")
+              _countryService.GetTotalCapital("Finland"),
+              _countryService.GetTotalCapital("Denmark")
             };
 
-            CountryList = new List<string>() { "Sweden", "Norway", "Denmark", "Finland" };
+            CountryList = new List<string>() { "Sweden", "Norway", "Finland", "Denmark" };
         }
 
     }

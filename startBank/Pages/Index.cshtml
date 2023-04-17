@@ -61,31 +61,28 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center justify-content-center">
     <div class="container" data-aos="fade-up" style="padding-bottom: 6rem;">
+    <p style="padding-top:110px;"></p>
         <div class="d-flex justify-content-center">
-        @for (int i = 0; i < Model.CountryList.Count; i++)
-        {
-            <p style="padding-top:60px"></p>
-            <div class="col-xl-2 col-md-2" style="border: 1px solid orange; gap: 3rem;" >
-                <div class="icon-box">
-                    @*<img id="counting" src="assets/img/sweden.png" style="max-width: 5rem" alt="">*@
-                    <p> <i class="fas fa-user"></i></p>
-                    <p style="color: white">Clients</p>
-                    <p>@Model.Customers[i]</p>
-                    <p><i class="ri-bar-chart-box-line"></i></p>
-                    <p style="color: white">Accounts</p>
-                    <p>@Model.Accounts[i]</p>
-                    <p><i class="fa-solid fa-dollar-sign"></i></p>
-                    <p style="color: white">Capital</p>
-                    <p>@Model.TotalCapital[i]</p>
-                    <p style="color: white">kr</p>
-                    <p><i class="bi bi-flag-fill"></i></p>
-                    <p>@Model.CountryList[i]</p>
-
-                    @*<h3><a href="">Top 10</a></h3>*@
+            @for (int i = 0; i < Model.CountryList.Count; i++)
+            {
+                <div class=" col-md-2" style="border: 1px solid orange">
+                    <div class="icon-box">
+                        <i class="fas fa-user"></i>
+                        <p style="color: white">Clients</p>
+                        <p style="color: white">@Model.Customers[i]</p>
+                        <i class="ri-bar-chart-box-line"></i>
+                        <p style="color: white">Accounts</p>
+                        <p style="color: white">@Model.Accounts[i]</p>
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        <p style="color: white">Capital</p>
+                        <p style="color: white"> @Model.TotalCapital[i] kr </p>
+                        <i class="bi bi-flag-fill"></i>
+                        <p style="color: white">@Model.CountryList[i]</p>
+                    </div>
                 </div>
-            </div>
-        }
+            }
         </div>
+        <p style="padding-bottom: 100px"></p>
 </section><!-- End Hero -->
 
 
