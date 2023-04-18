@@ -9,20 +9,16 @@ namespace startBank.Pages
     [BindProperties]
     public class OneCustomerModel : PageModel
     {
-
+        //vgg
         private readonly ICustomerService _customerService;
         public OneCustomerModel(ICustomerService customerService)
         {
             _customerService = customerService;
         }
-
         public CustomerModel OneCustomerDetail { get; set; }
-
-
         public void OnGet(int id)
         {
             OneCustomerDetail = _customerService.GetCustomer(id);
-
         }
     }
 }
