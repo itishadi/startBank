@@ -1,0 +1,83 @@
+﻿@page
+@model startBank.Pages.User_CRUD.CreateModel
+@{
+    //Om ViewData är INTE null konverta till en sträng
+    var successMessage = ViewData["Message"]?.ToString();
+}
+
+<h1 style="color:white; padding-top:30px; display:flex; justify-content:center;">Create a new Customer</h1>
+
+@if (!string.IsNullOrWhiteSpace(successMessage))
+{
+    <div class="alert alert-success" role="alert">
+        @successMessage
+    </div>
+}
+<form method="post" style="color:white">
+    <div style="display:flex; justify-content:space-around">
+    <div>
+    <div class="mb-3">
+        <label class="form-label">Gender</label>
+      <p><input type="text" class="form-control" asp-for="CreateUserRequest.Gender" /></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+                <p><input type="text" class="form-control" asp-for="CreateUserRequest.Name" /></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">LastName</label>
+                <p> <input type="text" class="form-control" asp-for="CreateUserRequest.LastName" /></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Address</label>
+                <p>  <input type="text" class="form-control" asp-for="CreateUserRequest.Address" /></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">City</label>
+                <p>   <input type="text" class="form-control" asp-for="CreateUserRequest.City" /></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Zipcode</label>
+                <p> <input type="text" class="form-control" asp-for="CreateUserRequest.Zipcode" /></p>
+    </div>
+    </div>
+
+
+
+    <div>
+    <div class="mb-3">
+        <label class="form-label">Country</label>
+                <p>  <input type="text" class="form-control" asp-for="CreateUserRequest.Country" /></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Country Code</label>
+                <p> <input type="text" class="form-control" asp-for="CreateUserRequest.CountryCode" /></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Birthday</label>
+                <p> <input type="date" class="form-control" asp-for="CreateUserRequest.Birthday" /></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">NationalID</label>
+                <p>  <input type="text" class="form-control" asp-for="CreateUserRequest.NationalID" /></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Telephone country code</label>
+                <p>  <input type="text" class="form-control" asp-for="CreateUserRequest.Telephonecountrycode" /></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Phone</label>
+                <p>  <input type="text" class="form-control" asp-for="CreateUserRequest.Phone" /></p>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+                <p> <input type="email" class="form-control" asp-for="CreateUserRequest.Email" /></p>
+    </div>
+    </div>
+    </div>
+    <div>
+        <button type="submit" class="get-started-btn scrollto" style="color:black">Save</button>
+    </div>
+</form>
+
