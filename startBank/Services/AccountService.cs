@@ -13,24 +13,50 @@ public class AccountService : IAccountService
     {
         _dbContext = dbContext;
     }
-    public List<AccountModel> GetAccountsTransactions(int accountId)
+    //public List<AccountModel> GetAccountsTransactions(int accountId)
+    //{
+    //   var transactions = _dbContext.Transactions
+    //        .Where(a => a.AccountId == accountId)
+    //        .OrderByDescending(a => a.Date)
+    //        .OrderByDescending(a => a.TransactionId)
+    //           .Select(a => new AccountModel
+    //           {
+    //               AccountId = accountId,
+    //               Balance = a.Balance,
+    //               Date = a.Date,
+    //               TransactionId = a.TransactionId,
+    //               Operation = a.Operation,
+    //               Amount = a.Balance,
+
+    //           }).ToList();
+    //        return transactions;
+    //}
+
+    public List<AccountModel> GetAccountsTransactions(int accountId, int numberOfRows)
     {
-       var transactions = _dbContext.Transactions
+        var transactions = _dbContext.Transactions
             .Where(a => a.AccountId == accountId)
             .OrderByDescending(a => a.Date)
             .OrderByDescending(a => a.TransactionId)
-               .Select(a => new AccountModel
-               {
-                   AccountId = accountId,
-                   Balance = a.Balance,
-                   Date = a.Date,
-                   TransactionId = a.TransactionId,
-                   Operation = a.Operation,
-                   Amount = a.Balance,
+            .Select(a => new AccountModel
+            {
+                AccountId = accountId,
+                Balance = a.Balance,
+                Date = a.Date,
+                TransactionId = a.TransactionId,
+                Operation = a.Operation,
+                Amount = a.Balance,
 
-               }).ToList();
-            return transactions;
+            });
+
+
+        if (numberOfRows != -1 ) 
+        { 
+             transactions = transactions.Take(numberOfRows);
+        }
+        return transactions.ToList();
     }
+
 
     public Account GetAccount(int accountId)
     {

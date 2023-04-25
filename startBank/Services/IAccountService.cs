@@ -14,7 +14,7 @@ namespace startBank.Services
             AccountNotFound
         }
 
-        List<AccountModel> GetAccountsTransactions(int acountId);
+        List<AccountModel> GetAccountsTransactions(int acountId, int transactionCount);
 
         Account GetAccount(int accountId);
         ErrorMessage Withdraw(int accountId, decimal amount);

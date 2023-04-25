@@ -14,6 +14,25 @@
         </h3>
         break;
     }
+
+  @*  <div class='get-started-btn scrollto'>
+        <label for="numberOfRows">Show:</label>
+        <form id="transactionFilterForm" method="get">
+            <input type="hidden" name="accountId" value="@Model.AccountId" />
+            <select id="numberOfRows" name="numberOfRows" asp-for="@Model.SelectedNumberOfRows" asp-items="@Model.RowsOptions">
+            </select>
+        </form>
+    </div>
+*@
+    <div class='get-started-btn scrollto' style='position: absolute; top: 30px; right: 10px;'>
+        <form id="transactionFilterForm" method="get">  
+            <input type="hidden" name="accountId" value="@Model.AccountId" />
+                <select id="numberOfRows" name="numberOfRows" asp-for="@Model.SelectedNumberOfRows" asp-items="@Model.RowsOptions">
+                </select>
+        </form>
+    </div>
+
+
     <div class="card-body">
         <table class="table">
             <tr style="color:white">
@@ -25,7 +44,7 @@
                 <th></th>
                 <th></th>
             </tr>
-            @foreach (var acc in Model.Accounts.Take(10))
+            @foreach (var acc in Model.Accounts)
             {
                 <tr class="CustomerHover">
 
@@ -39,3 +58,10 @@
         </table>
     </div>
 </div>
+@section Scripts{
+    <script>
+        document.getElementById('numberOfRows').addEventListener('change', function () {
+            document.getElementById('transactionFilterForm').submit();
+        });
+    </script>
+}

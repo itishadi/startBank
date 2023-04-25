@@ -84,9 +84,9 @@ namespace startBank.Pages.Account
         public bool ShowSuccessMessage { get; set; }
         public DateTime DepositDate { get; set; }
 
-        public void OnGet(int accountId)
+        public void OnGet(int accountId, int transactionCount)
         {
-            AccountTransaction = _accountService.GetAccountsTransactions(accountId);
+            AccountTransaction = _accountService.GetAccountsTransactions(accountId, transactionCount);
             DepositDate = DateTime.Now;
             var accountDb = _accountService.GetAccount(accountId);
             Balance = accountDb.Balance;
