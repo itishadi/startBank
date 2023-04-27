@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace startBank.Pages.User_CRUD
+namespace startBank.Pages.Customer_CRUD
 {
-    public class DeleteModel : PageModel
+    public class UpdateModel : PageModel
     {
         public void OnGet()
         {

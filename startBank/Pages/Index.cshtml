@@ -4,64 +4,11 @@
     ViewData["Title"] = "Home page";
 }
 
+
 <!-- ======= Hero Section ======= -->
+
 <section id="hero" class="d-flex align-items-center justify-content-center">
-    <div class="container" data-aos="fade-up" style="padding-top: 0">
-
-        @*    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
-        <div class="col-xl-6 col-lg-8">
-        <h2>Powerful Digital Solutions With Gp<span>.</span></h2>
-        <h3>We are team of talented digital marketers</h3>
-        </div>
-        </div>*@
-
-        <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-            <div class="col-xl-2 col-md-3">
-                <div class="icon-box">
-                    <h1><a asp-page="/ViewModel/Sweden"><span><img id="counting" src="assets/img/sweden.png" style="max-width: 5rem" alt=""></span></a></h1>
-                    @*<img id="counting" src="assets/img/sweden.png" style="max-width: 5rem" alt="">*@
-                    @*<i class="ri-store-line"></i>*@
-                    @*<h3><a href="https://chat.openai.com/chat">Top 10</a></h3>*@
-                </div>
-            </div>
-            <div class="col-xl-2 col-md-3">
-                <div class="icon-box">
-                    <h1><a asp-page="/ViewModel/Norway"><span><img id="counting" src="assets/img/norway.png" style="max-width: 5rem" alt=""></span></a></h1>
-                    @*<img src="assets/img/norway.png" style="max-width: 5rem" alt="">*@
-                    @*<i class="ri-bar-chart-box-line"></i>*@
-                    @*<h3><a href="">Dolor Sitema</a></h3>*@
-                </div>
-            </div>
-            <div class="col-xl-2 col-md-3">
-                <div class="icon-box">
-                    <h1><a asp-page="/ViewModel/Finland"><span><img id="counting" src="assets/img/finland.png" style="max-width: 5rem" alt=""></span></a></h1>
-                    @*<img src="assets/img/finland.png" style="max-width: 5rem" alt="">*@
-                    @*<i class="ri-calendar-todo-line"></i>*@
-                    @*<h3><a href="">Sedare Perspiciatis</a></h3>*@
-                </div>
-            </div>
-            <div class="col-xl-2 col-md-3">
-                <div class="icon-box">
-                    <h1><a asp-page="/ViewModel/Denmark"><span><img id="counting" src="assets/img/denmark.png" style="max-width: 5rem" alt=""></span></a></h1>
-                    @*<img src="assets/img/denmark.png" style="max-width: 5rem" alt="">*@
-                    @*<i class="ri-paint-brush-line"></i>*@
-                    @*<h3><a href="">Magni Dolores</a></h3>*@
-                </div>
-            </div>
-            @*  <div class="col-xl-2 col-md-4">
-            <div class="icon-box">
-            <i class="ri-database-2-line"></i>
-            <h3><a href="">Nemos Enimade</a></h3>
-            </div>
-            </div>*@
-        </div>
-
-    </div>
-</section><!-- End Hero -->
-<!-- ======= Hero Section ======= -->
-<section id="hero" >
-    <div class="container" data-aos="fade-up" style="padding-bottom: 6rem;">
-    <p style="padding-top:110px;"></p>
+    <div class="container" data-aos="fade-up">
         <div class="d-flex justify-content-center">
             @for (int i = 0; i < Model.CountryList.Count; i++)
             {
@@ -83,9 +30,43 @@
             }
         </div>
     </div>
-        <p style="padding-bottom: 100px"></p>
+    @*<p style="padding-bottom: 100px"></p>*@
 </section><!-- End Hero -->
+<section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up" style="padding-top: 0">
 
+        @*    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+        <div class="col-xl-6 col-lg-8">
+        <h2>Powerful Digital Solutions With Gp<span>.</span></h2>
+        <h3>We are team of talented digital marketers</h3>
+        </div>
+        </div>*@
+
+        <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+            <div class="col-xl-2 col-md-3">
+                <div class="icon-box">
+                    <h1><a asp-page="/ViewModel/Sweden"><span><img id="counting" src="assets/img/sweden.png" style="max-width: 5rem" alt=""></span></a></h1>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-3">
+                <div class="icon-box">
+                    <h1><a asp-page="/ViewModel/Norway"><span><img id="counting" src="assets/img/norway.png" style="max-width: 5rem" alt=""></span></a></h1>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-3">
+                <div class="icon-box">
+                    <h1><a asp-page="/ViewModel/Finland"><span><img id="counting" src="assets/img/finland.png" style="max-width: 5rem" alt=""></span></a></h1>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-3">
+                <div class="icon-box">
+                    <h1><a asp-page="/ViewModel/Denmark"><span><img id="counting" src="assets/img/denmark.png" style="max-width: 5rem" alt=""></span></a></h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <!-- ======= Clients Section ======= -->
    

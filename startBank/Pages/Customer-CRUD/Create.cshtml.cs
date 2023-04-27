@@ -5,7 +5,7 @@ using startBank.BankAppDatas;
 using startBank.Data;
 using startBank.Models;
 
-namespace startBank.Pages.User_CRUD
+namespace startBank.Pages.Customer_CRUD
 {
     public class CreateModel : PageModel
     {

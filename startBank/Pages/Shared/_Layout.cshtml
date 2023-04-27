@@ -25,7 +25,7 @@
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-   @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Login.styles.css" asp-append-version="true" />*@
 
@@ -39,9 +39,9 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -52,17 +52,30 @@
             <h1 class="logo me-auto me-lg-0"><a href="/index"><span><img src="assets/img/sb-icon.png" style="max-width: 5rem" alt=""></span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-           
+
 
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                     <li><a class="nav-link scrollto" asp-area="" asp-page="/index">Home</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                     <li><a class="nav-link scrollto" asp-area="" asp-page="/CustomerView">Customer</a></li>
-                 
 
                     @if (User.IsInRole("Admin"))
-                    {   
+                    {
+                    <li id="navbar" class="navbar">
+                        <ul class="d-flex flex-row">
+                            <li class="dropdown">
+                                <a href="#"><span>CRUD Customer</span> <i class="bi bi-chevron-right"></i></a>
+                                <ul>
+                                    <li><a asp-page="/Customer-CRUD/Create">Create New Customer</a></li>
+                                    <li><a asp-page="/Customer-CRUD/Update">Update Existing Customer</a></li>
+                                    <li><a asp-page="/Customer-CRUD/Delete">Delete Customer</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <i class="bi bi-list mobile-nav-toggle"></i>
+                    </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
@@ -73,14 +86,14 @@
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
-            @*<partial name="_LoginPartial"/>*@
-            <a href="https://localhost:7147/Identity/Account/Login" class="get-started-btn scrollto">Log in</a>
+            <div class="get-started-btn scrollto;" style="background:white; color:black;"><partial name="_LoginPartial" /></div>
+            @*<a href="https://localhost:7147/Identity/Account/Login" class="get-started-btn scrollto">Log in</a>*@
 
         </div>
     </header><!-- End Header -->
 
     <main id="main">
-    @RenderBody()
+        @RenderBody()
     </main>
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -111,22 +124,22 @@
                         <h4>Useful Links</h4>
                         <ul>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                          @*  <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                            @*  <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>*@
                         </ul>
                     </div>
 
-                @*    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Our Services</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                        </ul>
+                    @*    <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                    </ul>
                     </div>*@
 
                     <div class="col-lg-4 col-md-6 footer-newsletter">
@@ -142,21 +155,20 @@
             </div>
         </div>
 
-       @* <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Gp</span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
+        @* <div class="container">
+        <div class="copyright">
+        &copy; Copyright <strong><span>Gp</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
         </div>*@
     </footer><!-- End Footer -->
-
-  @*  <div id="preloader"></div>*@
+    @*  <div id="preloader"></div>*@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
@@ -170,7 +182,7 @@
 
     <!-- Template Main JS File -->
     <script src="~/assets/js/main.js"></script>
-   @* <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @* <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>*@
 
