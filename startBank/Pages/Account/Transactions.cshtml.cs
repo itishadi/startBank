@@ -22,6 +22,8 @@ namespace startBank.Pages.Account
         public decimal Amount { get; set; }
         public int AccountId { get; set; }
         public int ToAccountId { get; set; }
+        public string SuccessMessage { get; set; }
+        public bool ShowSuccessMessage { get; set; }
 
         public void OnGet(int accountId, int numberOfRows)
         {
@@ -39,8 +41,10 @@ namespace startBank.Pages.Account
             if (result == IAccountService.ErrorMessage.OK)
             {
                 // Transfer successful
-                TempData["SuccessMessage"] = "Transfer successful!";
-                return RedirectToPage("/CustomerView");
+                SuccessMessage = "Deposit successful! Your money has been deposited to your account.";
+                ShowSuccessMessage = true;
+                //return Page();
+                //return RedirectToPage("/CustomerView");
             }
             else
             {
@@ -67,8 +71,11 @@ namespace startBank.Pages.Account
                         break;
                 }
 
-                return Page();
             }
+                var accountDb = _accountService.GetAccount(AccountId);
+                Balance = accountDb.Balance;
+                TempData["SuccessMessage"] = "Transfer successful!";
+                return Page();
         }
 
     }

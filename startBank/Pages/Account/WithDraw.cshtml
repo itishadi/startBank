@@ -2,7 +2,7 @@
 @model startBank.Pages.Account.WithDrawModel
 @{
 }
-<h1 style="padding-top:40px; color:white">Withdraw</h1>
+<h1 style="padding-top:30px; color:white">Withdraw</h1>
 
 <h3 style="color:white">Balance: @Model.Balance kr</h3>
 
@@ -14,29 +14,36 @@
 }
 
 <form method="post" style="color:white">
-    <div class="form-group">
+    <p style="padding-top:30px;"></p>
+    <div style="display:flex; justify-content:space-around;">
+        <div class="MyGroups">
         <label asp-for="Amount">Amount</label>
         <input class="form-control" asp-for="Amount" />
         <div>
             <span class="field-validation-error" asp-validation-for="Amount"></span>
         </div>
     </div>
-    <div class="form-group">
+        <div class="MyGroups">
         <label asp-for="WithdrawDate">Date</label>
         <input class="form-control" asp-for="WithdrawDate" />
         <div>
             <span class="field-validation-error" asp-validation-for="WithdrawDate"></span>
         </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Comment">Comment</label>
-        <input class="form-control" asp-for="Comment" />
-        <div>
+    </div>
+    <p style="padding-top:30px;"></p>
+    <div class="MyContainer">
+        <div class="MyGroup">
+            <label asp-for="Comment">Comment</label>
+            <textarea class="form-control narrow" asp-for="Comment" rows="3"></textarea>
             <span class="field-validation-error" asp-validation-for="Comment"></span>
         </div>
     </div>
 
+    <div style="display:flex; justify-content:start;">
+    <a asp-page="/CustomerView" class="get-started-btn scrollto" style="background: black">Back</a>
     <button type="submit" class="get-started-btn scrollto" style="background: black">Withdraw</button>
+    </div>
 </form>
 @*<td><a asp-page="/CustomerView" class="get-started-btn scrollto">back</a></td>*@
 

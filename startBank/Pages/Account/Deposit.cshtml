@@ -2,32 +2,49 @@
 @model startBank.Pages.Account.DepositModel
 @{
 }
-<h1 style="padding-top:40px;color:white">Deposit</h>
+<h1 style="padding-top:30px;color:white">
+    Deposit</h>
     <h3 style="color:white">Balance: @Model.Balance kr</h3>
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success" role="alert">
-        @TempData["SuccessMessage"]
-    </div>
-}
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
 
     <form method="post" style="color:white">
-    <div class="form-group">
-        <label asp-for="Amount">Amount</label>
-        <input class="form-control" asp-for="Amount" />
-        <span class="field-validation-error" asp-validation-for="Amount"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="DepositDate">Date</label>
-        <input class="form-control" asp-for="DepositDate" />
-        <span class="field-validation-error" asp-validation-for="DepositDate"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Comment">Comment</label>
-        <input class="form-control" asp-for="Comment" />
-        <span class="field-validation-error" asp-validation-for="Comment"></span>
-    </div>
+        <p style="padding-top:30px;"></p>
+        <div style="display:flex; justify-content:space-around;">
+            <div class="MyGroups">
+                <label asp-for="Amount">Amount</label>
+                <input class="form-control" asp-for="Amount" />
+                <span class="field-validation-error" asp-validation-for="Amount"></span>
+            </div>
+            <div class="MyGroups">
+                <label asp-for="DepositDate">Date</label>
+                <input class="form-control" asp-for="DepositDate" />
+                <span class="field-validation-error" asp-validation-for="DepositDate"></span>
+            </div>
+        </div>
+        <p style="padding-top:30px;"></p>
+           @* <div class="form-group">
+                <label asp-for="Comment">Comment</label>
+                <input class="form-control" asp-for="Comment" />
+                <span class="field-validation-error" asp-validation-for="Comment"></span>
+            </div>*@
+        <div class="MyContainer">
+            <div class="MyGroup">
+                <label asp-for="Comment">Comment</label>
+                <textarea class="form-control narrow" asp-for="Comment" rows="3"></textarea>
+                <span class="field-validation-error" asp-validation-for="Comment"></span>
+            </div>
+        </div>
+
+
+        <div style="display:flex; justify-content:start;">
+            <a asp-page="/CustomerView" class="get-started-btn scrollto" style="background: black">Back</a>
         <button type="submit" class="get-started-btn scrollto" style="background: black">Deposit</button>
-</form>
+        </div>
+    </form>
 

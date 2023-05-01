@@ -77,6 +77,20 @@ h6 {
     color: black;
 }
 
+/*All Transactions */
+.MyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.MyGroups {
+    width: 30%;
+}
+.MyGroup {
+    width: 50%;
+}
+
+
 
 /*--------------------------------------------------------------
 # Preloader
