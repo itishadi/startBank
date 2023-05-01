@@ -19,6 +19,7 @@ namespace startBank.Pages
         public void OnGet(int id)
         {
             OneCustomerDetail = _customerService.GetCustomer(id);
+      
         }
     }
 }

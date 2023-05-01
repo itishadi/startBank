@@ -21,7 +21,7 @@
         margin-left:40px;
         /*margin: 0 auto;*/
         border-radius: 50%;
-        max-width: 100%;
+        max-width: 90%;
         width: 100%;
     }
 .img-name{
@@ -30,7 +30,7 @@
     align-items:center;
     color:#fff;
     margin-top:20px;
-    margin-left:40px;
+    margin-left:26px;
 }
 #row {
     display: flex;

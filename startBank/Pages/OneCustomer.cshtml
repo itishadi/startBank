@@ -2,6 +2,7 @@
 @model startBank.Pages.OneCustomerModel
 @{
     var detail = Model.OneCustomerDetail;
+    string message = "Norwegian don't have an ID";
 }
 
 @*<h1 class="CustomerOne" style="padding-top:100px;"> @Model.CustomerName</h1>
@@ -15,6 +16,8 @@
     <h6 class="CustomerOne">Address: @Model.Adress</h6>
     <h6 class="CustomerOne">City: @Model.City</h6>
 </div>*@
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="profile-head">
@@ -22,47 +25,51 @@
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <div class="row">
                         <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-responsive" />
-                        <li class="img-name"><h1>@detail.Name</h1></li>
+                        <li class="img-name"><h1 style="margin-top:-20px;">@detail.Name</h1></li>
                     </div>
                 </div>
 
-
-                <div class="col-md-9">
+                <div class="col-md-9" style="color: white">
                     <div id="row">
-                        <span class="col-sm-12"><h5></h5></span>
+                        <span class="col-sm-12"></span>
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <p> </p>
                             <ul>
-                                <li><span>Gender: @detail.Gender</span></li>
-                                <li><span>Name: @detail.Name</span></li>
-                                <li><span>Lastname: @detail.LastName</span></li>
-                                <li><span>National ID: @detail.NationalID</span></li>
-                                <li><span>Country: @detail.Country</span></li>
-                                <li><span>City: @detail.City</span></li>
-                                <li><span>Address: @detail.Address</span></li>
+                                <li>Gender:<span> @detail.Gender</span></li>
+                                <li>Name:<span> @detail.Name</span></li>
+                                <li>Lastname:<span> @detail.LastName</span></li>
+                                @if (@detail.Country != "Norway")
+                                {
+                                    <li>National ID:<span> @detail.NationalID</span></li>
+                                }
+                                else
+                                {
+                                    <li>NationalID: <span> @message</span></li>
+                                }
+                                <li>Country:<span> @detail.Country</span></li>
+                                <li>City:<span> @detail.City</span></li>
+                                <li>Address:<span> @detail.Address</span></li>
                             </ul>
                         </div>
                         <div class="col-md-4 col-sm-6 col-xs-12">
-                            <p> </p>
                             <ul>
-                                <li><span>Email: @detail.Email</span></li>
-                                <li><span>Phone: @detail.Phone</span></li>
-                                <li><span>Account ID: @detail.AccountId</span></li>
-                                <li><span>Balance: @detail.Balance</span></li>
-                                <li><span>Total balance: @detail.TotalBalance</span></li>
-                            </ul>
+                                <li>Email:<span> @detail.Email</span></li>
+                                <li>Phone:<span> @detail.Phone</span></li>
+                                <li>Account ID:<span> @detail.AccountId</span></li>
+                                <li>Balance:<span> @detail.Balance</span></li>
+                                <li>Total balance:<span> @detail.TotalBalance</span></li>
+                            </ul>   
                         </div>
-              @*  <li class="sidenav__list-item">
-                    <td>
+                        @*  <li class="sidenav__list-item">
+                        <td>
                         <a asp-page="/Account/Index" asp-route-accountId="@detail.AccountId">
-                                    <i class="bx bx-pie-chart-alt-2">  History</i>
+                        <i class="bx bx-pie-chart-alt-2">  History</i>
                         </a>
-                    </td>
-                    <td>
+                        </td>
+                        <td>
                         <a asp-page="/Account/Withdraw" class='bx bx-money-withdraw' asp-route-accountId="@Model.OneCustomerDetail.AccountId">Withdraw</a>
                         <a asp-page="/Account/Deposit" class='bx bx-plus-circle' asp-route-accountId="@Model.OneCustomerDetail.AccountId">Deposite</a>
-                    </td>
-                </li>*@
+                        </td>
+                        </li>*@
                     </div>
                 </div>
             </div>
@@ -74,8 +81,10 @@
     <a asp-page="/Account/Index" asp-route-accountId="@detail.AccountId">
         <i class="bx bx-pie-chart-alt-2 get-started-btn scrollto">  History</i>
     </a>
-    <a asp-page="/Account/Withdraw" class='bx bx-money-withdraw get-started-btn scrollto' 
-    asp-route-accountId="@Model.OneCustomerDetail.AccountId">Withdraw</a>
-    <a asp-page="/Account/Deposit" class='bx bx-plus-circle get-started-btn scrollto' 
-    asp-route-accountId="@Model.OneCustomerDetail.AccountId">Deposite</a>
+    <a asp-page="/Account/Withdraw" class='bx bx-money-withdraw get-started-btn scrollto'
+       asp-route-accountId="@Model.OneCustomerDetail.AccountId">Withdraw</a>
+    <a asp-page="/Account/Deposit" class='bx bx-plus-circle get-started-btn scrollto'
+       asp-route-accountId="@Model.OneCustomerDetail.AccountId">Deposite</a>
+    <a asp-page="/Account/Transactions" class='bx bx-plus-circle get-started-btn scrollto'
+       asp-route-AccountId="@Model.OneCustomerDetail.AccountId">Transaction</a>
 </td>

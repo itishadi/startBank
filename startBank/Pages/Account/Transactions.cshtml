@@ -1,0 +1,46 @@
+﻿@page
+@model startBank.Pages.Account.TransactionsModel
+@{
+}
+<h1 style="padding-top:30px;">Transfer Funds</h1>
+    @*@if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }*@
+
+@*@if (Model.Transaction != null)
+{
+    <h2>Transfer Details</h2>
+    <p>From Account: @Model.Transfer.FromAccount.AccountId</p>
+    <p>To Account: @Model.Transfer.ToAccount.AccountId</p>
+    <p>Amount: @Model.Transfer.Amount.ToString("C")</p>
+}*@
+
+@if (!ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@error.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}
+
+
+<form method="post">
+    <div class="form-group">
+        <label for="toAccountId">To Account</label>
+        <input type="text" class="form-control" id="toAccountId" name="ToAccountId">
+    </div>
+    <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="text" class="form-control" id="amount" name="Amount">
+    </div>
+    <input type="hidden" name="FromAccountId" value="@Model.AccountId">
+    <button type="submit" class="btn btn-primary">Transfer</button>
+
+
+</form>
+

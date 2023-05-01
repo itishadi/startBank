@@ -40,10 +40,13 @@ public class AccountService : IAccountService
     }
 
 
+
     public Account GetAccount(int accountId)
     {
         return _dbContext.Accounts.First(a => a.AccountId == accountId);
     }
+
+
 
     public ErrorMessage Withdraw(int accountId, decimal amount)
     {
@@ -78,6 +81,9 @@ public class AccountService : IAccountService
 
         return ErrorMessage.OK;
     }
+
+
+
     public ErrorMessage Deposit ( int accountId, decimal amount)
     {
         if (amount < 100 || amount > 10000)
@@ -113,6 +119,60 @@ public class AccountService : IAccountService
     }
 
 
+
+    public ErrorMessage Transaction(int fromAccountId, int toAccountId, decimal amount)
+    {
+        if (amount < 100 || amount > 10000)
+        {
+            return ErrorMessage.IncorrectAmount;
+        }
+
+        var fromAccount = _dbContext.Accounts.FirstOrDefault(a => a.AccountId == fromAccountId);
+        if (fromAccount == null)
+        {
+            return ErrorMessage.AccountNotFound;
+        }
+
+        var toAccount = _dbContext.Accounts.FirstOrDefault(a => a.AccountId == toAccountId);
+        if (toAccount == null)
+        {
+            return ErrorMessage.AccountNotFound;
+        }
+
+        if (fromAccount.Balance < amount)
+        {
+            return ErrorMessage.BalanceTooLow;
+        }
+
+        fromAccount.Balance -= amount;
+        toAccount.Balance += amount;
+
+        var transactionFrom = new Transaction
+        {
+            AccountId = fromAccountId,
+            Date = DateTime.Now,
+            Operation = "Withdraw",
+            Type = "Debit",
+            Amount = amount * -1,
+            Balance = fromAccount.Balance
+        };
+        _dbContext.Transactions.Add(transactionFrom);
+
+        var transactionTo = new Transaction
+        {
+            AccountId = toAccountId,
+            Date = DateTime.Now,
+            Operation = "Deposit",
+            Type = "Credit",
+            Amount = amount,
+            Balance = toAccount.Balance
+        };
+        _dbContext.Transactions.Add(transactionTo);
+
+        _dbContext.SaveChanges();
+
+        return ErrorMessage.OK;
+    }
 
 
 }

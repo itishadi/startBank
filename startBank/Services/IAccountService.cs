@@ -11,7 +11,9 @@ namespace startBank.Services
             OK,
             BalanceTooLow,
             IncorrectAmount,
-            AccountNotFound
+            AccountNotFound,
+            SameAccountTransfer,
+            ExceedTransferLimit
         }
 
         List<AccountModel> GetAccountsTransactions(int acountId, int transactionCount);
@@ -20,8 +22,10 @@ namespace startBank.Services
         ErrorMessage Withdraw(int accountId, decimal amount);
 
         ErrorMessage Deposit(int accountId, decimal amount);
+        public ErrorMessage Transaction(int fromAccountId, int toAccountId, decimal amount);
+       
 
-    }
+        }
 
 
 }
