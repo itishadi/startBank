@@ -4,8 +4,8 @@
     //Om ViewData är INTE null konverta till en sträng
     var successMessage = ViewData["Message"]?.ToString();
 }
-
-<h1 style="color:white; padding-top:30px; display:flex; justify-content:center;">Create a new Customer</h1>
+<p style="padding-top:60px;"></p>
+<h1 style="color:white; display:flex; justify-content:center;">Create a new Customer</h1>
 
 @if (!string.IsNullOrWhiteSpace(successMessage))
 {

@@ -5,7 +5,6 @@ using startBank.Models;
 using startBank.Services;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography.X509Certificates;
-
 namespace startBank.Pages.Account
 {
     [BindProperties]

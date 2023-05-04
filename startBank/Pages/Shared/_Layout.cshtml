@@ -58,7 +58,11 @@
                 <ul>
                     <li><a class="nav-link scrollto" asp-area="" asp-page="/index">Home</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+
+                    @if (User.IsInRole("Cashier"))
+                    {
                     <li><a class="nav-link scrollto" asp-area="" asp-page="/CustomerView">Customer</a></li>
+                    }
 
                     @if (User.IsInRole("Admin"))
                     {

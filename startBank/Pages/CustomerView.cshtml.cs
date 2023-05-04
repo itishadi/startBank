@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using startBank.BankAppDatas;
@@ -6,6 +7,7 @@ using startBank.Services;
 
 namespace startBank.Pages
 {
+    [Authorize(Roles="Cashier")]
     public class CustomerViewModel : PageModel
     {
         private readonly ICustomerService _customerService;
