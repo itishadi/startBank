@@ -1,12 +1,7 @@
 ﻿using startBank.BankAppDatas;
 using startBank.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BankLibrary.Services
+namespace startBank.Services
 {
     public interface IAccountService
     {
@@ -27,7 +22,9 @@ namespace BankLibrary.Services
 
         ErrorMessage Deposit(int accountId, decimal amount);
         public ErrorMessage Transaction(int fromAccountId, int toAccountId, decimal amount);
+       
+
+        }
 
 
-    }
 }
