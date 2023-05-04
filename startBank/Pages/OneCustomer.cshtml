@@ -25,7 +25,7 @@
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <div class="row">
                         <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-responsive" />
-                        <li class="img-name"><h1 style="margin-top:-20px;">@detail.Name</h1></li>
+                        <li class="img-name"><h1>@detail.Name</h1></li>
                     </div>
                 </div>
 
@@ -71,20 +71,25 @@
                         </td>
                         </li>*@
                     </div>
+          
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div></div>
+<div class="d-flex justify-content-center" style="gap:30px; padding-top:5px;">
 
-<td>
-    <a asp-page="/Account/Index" asp-route-accountId="@detail.AccountId">
-        <i class="bx bx-pie-chart-alt-2 get-started-btn scrollto">  History</i>
-    </a>
-    <a asp-page="/Account/Withdraw" class='bx bx-money-withdraw get-started-btn scrollto'
+    <a asp-page="/Account/Index" id="shadow__btn" class=" bx bx-pie-chart-alt"
+       asp-route-accountId="@detail.AccountId">History</a>
+
+    <a asp-page="/Account/Withdraw" id="shadow__btn" class='bx bx-money-withdraw'
        asp-route-accountId="@Model.OneCustomerDetail.AccountId">Withdraw</a>
-    <a asp-page="/Account/Deposit" class='bx bx-plus-circle get-started-btn scrollto'
+
+    <a asp-page="/Account/Deposit" id="shadow__btn" class='bx bx-plus-circle get-started-btn scrollto'
        asp-route-accountId="@Model.OneCustomerDetail.AccountId">Deposite</a>
-    <a asp-page="/Account/Transactions" class='bx bx-plus-circle get-started-btn scrollto'
+
+    <a asp-page="/Account/Transactions" id="shadow__btn" class="bi bi-currency-exchange"
        asp-route-AccountId="@Model.OneCustomerDetail.AccountId">Transaction</a>
-</td>
+</div>
+

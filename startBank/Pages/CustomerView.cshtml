@@ -6,13 +6,15 @@
 
 
 
-<h1 style="padding-top:35px; color:white">Customers</h1>
+<h1 style="padding-top:20px; color:white">Customers</h1>
 
 <h3 style="color:white">Page @Model.CurrentPage</h3>
 
 
 <form method="get">
-    <input asp-for="@Model.Q" />
+    @*<input asp-for="@Model.Q" />*@
+
+    <input asp-for="@Model.Q" class="input" placeholder="Type here...">
     <input type="hidden" asp-for="@Model.OneCustomerId" />
     <button type="submit" class="get-started-btn scrollto" style=" background: black">
         <i class="fas fa-search"></i>
@@ -100,7 +102,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody class="CustomerHover">
+    <tbody class="">
         @foreach (var c in Model.Customers)
         {
             <tr>
@@ -109,7 +111,16 @@
                 <td>@c.Name</td>
                 <td>@c.Address</td>
                 <td>@c.City</td>
-                <td><a asp-page="/OneCustomer" asp-route-id="@c.Id" class="get-started-btn scrollto">View</a></td>
+                @*<td><a asp-page="/OneCustomer" asp-route-id="@c.Id" class="get-started-btn scrollto">View</a></td>*@
+                <td>
+                    <button>
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front text">
+                            <a asp-page="/OneCustomer" style="color:black;" asp-route-id="@c.Id">View</a>
+                    </span>
+                </button>
+                </td>
             </tr>
         }
    
@@ -121,28 +132,43 @@
 
         @if (Model.CurrentPage != 1)
         {
-            <a class="get-started-btn scrollto"
-           asp-page="/CustomerView"
-           asp-route-oneCustomerId="@Model.Customers"
-           asp-route-q="@Model.Q"
-           asp-route-sortColumn="@Model.SortColumn"
-           asp-route-sortOrder="@Model.SortOrder"
-           asp-route-p="@(Model.CurrentPage-1)">
-                Prev
-            </a>
+          
+
+            <button>
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front text">
+                    <a style="color:black;"
+                   asp-page="/CustomerView"
+                   asp-route-oneCustomerId="@Model.Customers"
+                   asp-route-q="@Model.Q"
+                   asp-route-sortColumn="@Model.SortColumn"
+                   asp-route-sortOrder="@Model.SortOrder"
+                   asp-route-p="@(Model.CurrentPage-1)">
+                        Prev
+                    </a>
+                </span>
+            </button>
+
         }
         @if (Model.Customers.Any() && Model.CurrentPage != null)
         {
-            <a class="get-started-btn scrollto"
-           asp-page="/CustomerView"
-           asp-route-oneCustomerId="@Model.OneCustomerId"
-           asp-route-q="@Model.Q"
-           asp-route-sortColumn="@Model.SortColumn"
-           asp-route-sortOrder="@Model.SortOrder"
-           asp-route-pageNo="@(Model.CurrentPage+1)"
-           asp-route-p="@(Model.CurrentPage + 1)">
-                Next
-            </a>
+            <button>
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front text">
+                    <a style="color:black;"
+                   asp-page="/CustomerView"
+                   asp-route-oneCustomerId="@Model.OneCustomerId"
+                   asp-route-q="@Model.Q"
+                   asp-route-sortColumn="@Model.SortColumn"
+                   asp-route-sortOrder="@Model.SortOrder"
+                   asp-route-pageNo="@(Model.CurrentPage+1)"
+                   asp-route-p="@(Model.CurrentPage + 1)">
+                        Next
+                    </a>
+                </span>
+            </button>
         }
     </td>
 </table>

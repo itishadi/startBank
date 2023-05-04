@@ -17,20 +17,23 @@
 }
 
     .profile-head img {
-        margin-top:40px;
-        margin-left:40px;
+        margin-top:120px;
+        margin-left:250px;
         /*margin: 0 auto;*/
         border-radius: 50%;
-        max-width: 90%;
+        max-width: 70%;
         width: 100%;
+    }
+    .h1{
+
     }
 .img-name{
     display:flex;
     justify-content:center;
     align-items:center;
     color:#fff;
-    margin-top:20px;
-    margin-left:26px;
+    margin-top:10px;
+    margin-left:200px;
 }
 #row {
     display: flex;

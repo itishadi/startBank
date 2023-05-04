@@ -32,6 +32,8 @@
     <!-- Template Main CSS File -->
     <link href="~/assets/css/style.css" rel="stylesheet">
     <link href="~/assets/css/OneCustomer.css" rel="stylesheet">
+    <link href="~/assets/css/buttonUI.css" rel="stylesheet">
+
     <!-- =======================================================
     * Template Name: Gp
     * Updated: Mar 10 2023 with Bootstrap v5.2.3
@@ -90,7 +92,7 @@
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
-            <div class="get-started-btn scrollto;" style="background:orange;"><partial name="_LoginPartial" /></div>
+            <div id="shadow__btn"><partial name="_LoginPartial" /></div>
             @*<a href="https://localhost:7147/Identity/Account/Login" class="get-started-btn scrollto">Log in</a>*@
 
         </div>
@@ -146,11 +148,11 @@
                     </ul>
                     </div>*@
 
-                    <div class="col-lg-4 col-md-6 footer-newsletter">
+                    <div class="col-lg-4 col-md-6 footer-newsletter" >
                         <h4>Our Newsletter</h4>
                         <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
                         <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
+                            <input type="email" name="email"><input id="shadow__btn" type="submit" value="Subscribe">
                         </form>
 
                     </div>
