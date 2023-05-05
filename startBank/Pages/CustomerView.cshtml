@@ -2,26 +2,16 @@
 @model startBank.Pages.CustomerViewModel
 @{
 }
-
-
-
-
 <h1 style="padding-top:20px; color:white">Customers</h1>
-
 <h3 style="color:white">Page @Model.CurrentPage</h3>
 
-
 <form method="get">
-    @*<input asp-for="@Model.Q" />*@
-
     <input asp-for="@Model.Q" class="input" placeholder="Type here...">
     <input type="hidden" asp-for="@Model.OneCustomerId" />
     <button type="submit" class="get-started-btn scrollto" style=" background: black">
         <i class="fas fa-search"></i>
     </button>
 </form>
-
-
 
 <table class="table table-#373b3e" style="color:white;">
     <thead>
@@ -105,25 +95,24 @@
     <tbody class="">
         @foreach (var c in Model.Customers)
         {
-            <tr >
+            <tr>
                 <td>@c.Id</td>
                 <td>@c.NationalID</td>
                 <td>@c.Name</td>
                 <td>@c.Address</td>
                 <td>@c.City</td>
-                @*<td><a asp-page="/OneCustomer" asp-route-id="@c.Id" class="get-started-btn scrollto">View</a></td>*@
                 <td>
                     <button>
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <span class="front text">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front text">
                             <a asp-page="/OneCustomer" style="color:black;" asp-route-id="@c.Id">View</a>
-                    </span>
-                </button>
+                        </span>
+                    </button>
                 </td>
             </tr>
         }
-   
+
     </tbody>
     <td></td>
     <td></td>
@@ -132,7 +121,7 @@
 
         @if (Model.CurrentPage != 1)
         {
-          
+
 
             <button>
                 <span class="shadow"></span>

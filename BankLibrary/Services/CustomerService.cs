@@ -90,13 +90,12 @@ namespace startBank.Services
                     query = query.OrderByDescending(s => s.City);
 
 
-            var itemIndex = (p - 1) * 48; // 5 är page storlek
+            var itemIndex = (p - 1) * 48; 
 
             query = query.Skip(itemIndex);
-            query = query.Take(48); // 5 är page storlek
+            query = query.Take(48); 
             var Customers = query.Select(s => new CustomerModel
             {
-                // kundnummer och personnummer, namn, adress, city 
                 Id = s.CustomerId,
                 NationalID = s.NationalId,
                 Name = s.Givenname,

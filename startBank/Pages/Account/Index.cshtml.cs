@@ -26,10 +26,7 @@ namespace startBank.Pages.Account
         };
 
         public List<AccountModel> Accounts { get; set; }
-        //public void OnGet(int accountId)
-        //{
-        //    Accounts = _accountService.GetAccountsTransactions(accountId);
-        //}
+
         public void OnGet(int accountId, int numberOfRows = 10)
         {
             AccountId = accountId;
@@ -37,7 +34,5 @@ namespace startBank.Pages.Account
 
             Accounts = _accountService.GetAccountsTransactions(accountId, numberOfRows);
         }
-
-
     }
 }

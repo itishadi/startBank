@@ -9,7 +9,6 @@ namespace startBank.Pages
     [BindProperties]
     public class OneCustomerModel : PageModel
     {
-        //vggsdcsd
         private readonly ICustomerService _customerService;
         public OneCustomerModel(ICustomerService customerService)
         {

@@ -15,18 +15,14 @@
         </h3>
         break;
     }
-
-
     <div class="drop-place">
-        <form id="transactionFilterForm" method="get">  
+        <form id="transactionFilterForm" method="get">
             <input type="hidden" name="accountId" value="@Model.AccountId" />
             <select class="select-dropdown" id="numberOfRows" name="numberOfRows"
                     asp-for="@Model.SelectedNumberOfRows" asp-items="@Model.RowsOptions">
-                </select>
+            </select>
         </form>
     </div>
-
-
     <div class="card-body">
         <table class="table">
             <tr style="color:white">
@@ -51,9 +47,9 @@
             }
         </table>
     </div>
-<div style="display:flex; justify-content:start;">
-    <a asp-page="/CustomerView" id="shadow__btn">Back</a>
-</div>
+    <div style="display:flex; justify-content:start;">
+        <a asp-page="/CustomerView" id="shadow__btn">Back</a>
+    </div>
 </div>
 @section Scripts{
     <script>

@@ -7,7 +7,7 @@ using startBank.Services;
 
 namespace startBank.Pages
 {
-    [Authorize(Roles="Cashier")]
+    [Authorize(Roles = "Cashier")]
     public class CustomerViewModel : PageModel
     {
         private readonly ICustomerService _customerService;
@@ -24,7 +24,7 @@ namespace startBank.Pages
         public string SortOrder { get; set; }
         public string Q { get; set; }
 
-        public void OnGet(int oneCustomerId, string sortColumn, string sortOrder, int p, string q) 
+        public void OnGet(int oneCustomerId, string sortColumn, string sortOrder, int p, string q)
         {
             Q = q;
             SortColumn = sortColumn;
@@ -40,4 +40,4 @@ namespace startBank.Pages
 
         }
     }
-    }
+}

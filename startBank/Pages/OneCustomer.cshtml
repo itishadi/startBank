@@ -5,19 +5,6 @@
     string message = "Norwegian don't have an ID";
 }
 
-@*<h1 class="CustomerOne" style="padding-top:100px;"> @Model.CustomerName</h1>
-<h6 class="CustomerOne">ID: @Model.NationalID</h6>
-<h6 class="CustomerOne">Address: @Model.Adress</h6>
-<h6 class="CustomerOne" style="padding-bottom:100px;">City: @Model.City</h6>*@
-
-@*<div class="customer-container">
-    <h1 class="CustomerOne">@Model.CustomerName</h1>
-    <h6 class="CustomerOne">ID: @Model.NationalID</h6>
-    <h6 class="CustomerOne">Address: @Model.Adress</h6>
-    <h6 class="CustomerOne">City: @Model.City</h6>
-</div>*@
-
-
 <div class="container-fluid">
     <div class="row">
         <div class="profile-head">
@@ -59,17 +46,6 @@
                                 <li>Total balance:<span> @detail.TotalBalance</span></li>
                             </ul>   
                         </div>
-                        @*  <li class="sidenav__list-item">
-                        <td>
-                        <a asp-page="/Account/Index" asp-route-accountId="@detail.AccountId">
-                        <i class="bx bx-pie-chart-alt-2">  History</i>
-                        </a>
-                        </td>
-                        <td>
-                        <a asp-page="/Account/Withdraw" class='bx bx-money-withdraw' asp-route-accountId="@Model.OneCustomerDetail.AccountId">Withdraw</a>
-                        <a asp-page="/Account/Deposit" class='bx bx-plus-circle' asp-route-accountId="@Model.OneCustomerDetail.AccountId">Deposite</a>
-                        </td>
-                        </li>*@
                     </div>
           
                 </div>

@@ -81,8 +81,6 @@ public class AccountService : IAccountService
         return ErrorMessage.OK;
     }
 
-
-
     public ErrorMessage Deposit ( int accountId, decimal amount)
     {
         if (amount < 100 || amount > 10000)
@@ -116,8 +114,6 @@ public class AccountService : IAccountService
 
         return ErrorMessage.OK;
     }
-
-
 
     public ErrorMessage Transaction(int fromAccountId, int toAccountId, decimal amount)
     {
@@ -172,6 +168,4 @@ public class AccountService : IAccountService
 
         return ErrorMessage.OK;
     }
-
-
 }

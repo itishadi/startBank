@@ -39,8 +39,6 @@ namespace startBank.Services
 
             return top10Customers;
         }
-        // each country
-
 
         public int GetCustomerCount(string country)
         {
@@ -71,9 +69,5 @@ namespace startBank.Services
 
             return totalCapital;
         }
-
-
-
-
     }
 }

@@ -34,21 +34,15 @@ namespace startBank.Pages.Account
         }
         public IActionResult OnPost(int AccountId, int toAccountId, decimal amount)
         {
-            // Call the Transaction method of the _accountService object here
             var result = _accountService.Transaction(AccountId, toAccountId, amount);
 
-            // Handle the result as necessary
             if (result == IAccountService.ErrorMessage.OK)
             {
-                // Transfer successful
                 SuccessMessage = "Deposit successful! Your money has been deposited to your account.";
                 ShowSuccessMessage = true;
-                //return Page();
-                //return RedirectToPage("/CustomerView");
             }
             else
             {
-                // Handle the error message returned by the Transaction method
                 switch (result)
                 {
                     case IAccountService.ErrorMessage.IncorrectAmount:
