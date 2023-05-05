@@ -2,7 +2,7 @@
 @model startBank.Pages.Account.IndexModel
 @{
 }
-<p style="padding-top:30px"></p>
+<p style="padding-top:60px"></p>
 <div class="card" style="background:black; color:white;">
     <div class="card-header">
         <h1>Alla Accounts</h1>
@@ -16,19 +16,12 @@
         break;
     }
 
-  @*  <div class='get-started-btn scrollto'>
-        <label for="numberOfRows">Show:</label>
-        <form id="transactionFilterForm" method="get">
-            <input type="hidden" name="accountId" value="@Model.AccountId" />
-            <select id="numberOfRows" name="numberOfRows" asp-for="@Model.SelectedNumberOfRows" asp-items="@Model.RowsOptions">
-            </select>
-        </form>
-    </div>
-*@
-    <div class='get-started-btn scrollto' style='position: absolute; top: 30px; right: 10px;'>
+
+    <div class="drop-place">
         <form id="transactionFilterForm" method="get">  
             <input type="hidden" name="accountId" value="@Model.AccountId" />
-                <select id="numberOfRows" name="numberOfRows" asp-for="@Model.SelectedNumberOfRows" asp-items="@Model.RowsOptions">
+            <select class="select-dropdown" id="numberOfRows" name="numberOfRows"
+                    asp-for="@Model.SelectedNumberOfRows" asp-items="@Model.RowsOptions">
                 </select>
         </form>
     </div>

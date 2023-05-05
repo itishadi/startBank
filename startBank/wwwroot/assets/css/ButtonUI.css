@@ -100,6 +100,7 @@ button:focus:not(:focus-visible) {
     }
 
 /*/////////////////////////////////////////////////////*/
+/*Login*/
 .w-100.btn.btn-lg.btn-primary {
     padding: 10px 20px;
     border: none;
@@ -138,3 +139,18 @@ button:focus:not(:focus-visible) {
         outline-color: #fc9303;
     }
 
+/*///////////////////////////////////////////////////////////////////*/
+/*dropdawn*/
+.select-dropdown {
+
+    border: 5px solid #fc9303; /* set the border color */
+    border-radius: 40px; /* add some border radius */
+    padding: 5px; /* add some padding */
+    font-size: 16px; /* set the font size */
+}
+.drop-place {
+    position: absolute;
+    top: 30px;
+    right: 150px;
+    border-radius: 40px
+}
