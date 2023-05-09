@@ -5,7 +5,7 @@ using System.Data;
 
 namespace startBank.Pages.Customer_CRUD
 {
-    [Authorize(Roles = "Cashier")]
+    [Authorize(Roles = "Admin")]
     public class DeleteModel : PageModel
     {
         public void OnGet()

@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data;
 
-namespace startBank.Pages.Customer_CRUD
+namespace startBank.Pages.User_CRUD
 {
     [Authorize(Roles = "Admin")]
-    public class UpdateModel : PageModel
+    public class DeleteUserModel : PageModel
     {
         public void OnGet()
         {

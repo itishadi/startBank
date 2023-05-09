@@ -67,11 +67,22 @@
                         <li id="navbar" class="navbar">
                             <ul class="d-flex flex-row">
                                 <li class="dropdown">
-                                    <a href="#"><span>CRUD Customer</span> <i class="bi bi-chevron-right"></i></a>
+                                    <a href="#"><span>CRUD User</span> <i class="bi bi-chevron-dawn"></i></a>
                                     <ul>
-                                        <li><a asp-page="/Customer-CRUD/Create">Create New Customer</a></li>
-                                        <li><a asp-page="/Customer-CRUD/Update">Update Existing Customer</a></li>
-                                        <li><a asp-page="/Customer-CRUD/Delete">Delete Customer</a></li>
+                                        <li><a asp-page="/User-CRUD/CreateUser">Create New User</a></li>
+                                        <li><a asp-page="/User-CRUD/ReadUser">Read New User</a></li>
+                                        <li><a asp-page="/User-CRUD/UpdateUser">Update Existing User</a></li>
+                                        <li><a asp-page="/User-CRUD/DeleteUser">Delete User</a></li>
+
+                                        <li class="dropdown">
+                                            <a href="#"><span>CRUD Customer</span> <i class="bi bi-chevron-right"></i></a>
+                                            <ul>
+                                                <li><a asp-page="/Customer-CRUD/Create">Create New Customer</a></li>
+                                                <li><a asp-page="/Customer-CRUD/Read">Read Existing Customer</a></li>
+                                                <li><a asp-page="/Customer-CRUD/Update">Update Customer</a></li>
+                                                <li><a asp-page="/Customer-CRUD/Delete">Delete Customer</a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>

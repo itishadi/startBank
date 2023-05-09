@@ -6,7 +6,7 @@ using System.Data;
 namespace startBank.Pages.Customer_CRUD
 {
     [Authorize(Roles = "Admin")]
-    public class UpdateModel : PageModel
+    public class ReadModel : PageModel
     {
         public void OnGet()
         {

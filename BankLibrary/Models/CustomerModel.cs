@@ -19,7 +19,7 @@ namespace startBank.Models
         public string CountryCode { get; set; }
         public string Telephonecountrycode { get; set; }
         public string Zipcode { get; set; }
-        public string City { get; set; }
+        public string City { get; set; } 
         public decimal Balance { get; set; }
         public decimal TotalBalance { get; set; }
         public int NumberOfAccount { get; set; }

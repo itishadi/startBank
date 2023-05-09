@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,15 +10,17 @@ using System.Data;
 
 namespace startBank.Pages.Customer_CRUD
 {
-    [Authorize(Roles = "Cashier")]
+    [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
 
         private readonly BankAppDataContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public CreateModel(BankAppDataContext dbContext)
+        public CreateModel(BankAppDataContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         [BindProperty]
@@ -29,22 +32,8 @@ namespace startBank.Pages.Customer_CRUD
 
         public void OnPost()
         {
-            var userDbModel = new Customer
-            {
-                NationalId = CreateUserRequest.NationalID,
-                Givenname = CreateUserRequest.Name,
-                Surname = CreateUserRequest.LastName,
-                Streetaddress = CreateUserRequest.Address,
-                Birthday = CreateUserRequest.Birth,
-                Telephonenumber = CreateUserRequest.Phone,
-                Emailaddress = CreateUserRequest.Email,
-                Gender = CreateUserRequest.Gender,
-                Country = CreateUserRequest.Country,
-                City = CreateUserRequest.City,
-                CountryCode = CreateUserRequest.CountryCode,
-                Telephonecountrycode = CreateUserRequest.Telephonecountrycode,
-                Zipcode = CreateUserRequest.Zipcode
-            };
+            var userDbModel = new Customer();
+            _mapper.Map(CreateUserRequest, userDbModel);
 
             _dbContext.Customers.Add(userDbModel);
             _dbContext.SaveChanges();

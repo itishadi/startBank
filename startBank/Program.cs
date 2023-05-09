@@ -1,9 +1,10 @@
+using BankLibrary.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using startBank.BankAppDatas;
 using startBank.Data;
 using startBank.Services;
-
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 builder.Services.AddTransient<ICustomerService, CustomerService>();
 builder.Services.AddTransient<ICountryService, CountryService>();
 builder.Services.AddTransient<IAccountService, AccountService>();
+builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(AutoMapperProfile)));
 
 
 var app = builder.Build();

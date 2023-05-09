@@ -12,7 +12,7 @@
         @successMessage
     </div>
 }
-<form method="post" style="color:white">
+<form method="post" style="color:white" class="needs-validation" novalidate >
     <div style="display:flex; justify-content:space-around">
     <div>
     <div class="mb-3">
@@ -33,14 +33,13 @@
     </div>
     <div class="mb-3">
         <label class="form-label">City</label>
-                <p>   <input type="text" class="form-control" asp-for="CreateUserRequest.City" /></p>
+                <p> <input type="text" class="form-control" asp-for="CreateUserRequest.City" /></p>
     </div>
     <div class="mb-3">
         <label class="form-label">Zipcode</label>
                 <p> <input type="text" class="form-control" asp-for="CreateUserRequest.Zipcode" /></p>
     </div>
     </div>
-
 
 
     <div>
@@ -76,7 +75,11 @@
     </div>
     </div>
     <div>
-        <button type="submit" id="shadow__btn">Save</button>
+        <button class="btn btn-primary" type="submit" id="shadow__btn">Save</button>
     </div>
 </form>
+
+
+
+
 
