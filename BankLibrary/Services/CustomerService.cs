@@ -90,10 +90,10 @@ namespace startBank.Services
                     query = query.OrderByDescending(s => s.City);
 
 
-            var itemIndex = (p - 1) * 48; 
+            var itemIndex = (p - 1) * 50; 
 
             query = query.Skip(itemIndex);
-            query = query.Take(48); 
+            query = query.Take(50); 
             var Customers = query.Select(s => new CustomerModel
             {
                 Id = s.CustomerId,
