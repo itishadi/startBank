@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Build.Framework;
 using startBank.BankAppDatas;
 using startBank.Models;
 using startBank.Services;
@@ -19,7 +20,8 @@ namespace startBank.Pages.Account
         public List<AccountModel> AccountTransaction { get; set; }
         public DateTime TransactionDate { get; set; }
         public decimal Balance { get; set; }
-        public decimal Amount { get; set; }
+        [Required]
+        public decimal? Amount { get; set; }
         public int AccountId { get; set; }
         public int ToAccountId { get; set; }
         public string SuccessMessage { get; set; }
@@ -36,6 +38,7 @@ namespace startBank.Pages.Account
         {
             var result = _accountService.Transaction(AccountId, toAccountId, amount);
 
+            if(ModelState.IsValid) { 
             if (result == IAccountService.ErrorMessage.OK)
             {
                 SuccessMessage = "Deposit successful! Your money has been deposited to your account.";
@@ -66,9 +69,14 @@ namespace startBank.Pages.Account
                 }
 
             }
-                var accountDb = _accountService.GetAccount(AccountId);
+            }
+                if (result == IAccountService.ErrorMessage.OK)
+                {
+                    TempData["SuccessMessage"] = "Deposit successful!";
+                }
+            var accountDb = _accountService.GetAccount(AccountId);
                 Balance = accountDb.Balance;
-                TempData["SuccessMessage"] = "Transfer successful!";
+                //TempData["SuccessMessage"] = "Transfer successful!";
                 return Page();
         }
 

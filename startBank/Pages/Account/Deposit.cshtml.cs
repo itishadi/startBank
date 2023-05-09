@@ -40,20 +40,30 @@ namespace startBank.Pages.Account
         {
             var status = _accountService.Deposit(accountId, Amount);
 
-            if (status == IAccountService.ErrorMessage.OK)
+
+            if(ModelState.IsValid)
             {
-                SuccessMessage = "Deposit successful! Your money has been deposited to your account.";
-                ShowSuccessMessage = true;
-           
+                if (status == IAccountService.ErrorMessage.OK)
+                {
+                    SuccessMessage = "Deposit successful! Your money has been deposited to your account.";
+                    ShowSuccessMessage = true;
+                }
+
+                if (status == IAccountService.ErrorMessage.IncorrectAmount)
+                { ModelState.AddModelError("Amount", "Please enter a correct amount (100-10000)!"); }
+
+                if (DepositDate.AddHours(1) < DateTime.Now)
+                { ModelState.AddModelError("WithdrawDate", "Cannot withdraw money in the past!"); }
             }
+                if (status == IAccountService.ErrorMessage.OK)
+                {
+                    TempData["SuccessMessage"] = "Deposit successful!";
+                }
 
-            if (status == IAccountService.ErrorMessage.IncorrectAmount)
-            { ModelState.AddModelError("Amount", "Please enter a correct amount (100-10000)!"); }
+                var accountDb = _accountService.GetAccount(accountId);
+                Balance = accountDb.Balance;
 
-            var accountDb = _accountService.GetAccount(accountId);
-            Balance = accountDb.Balance;
-            TempData["SuccessMessage"] = "Deposit successful!";
-           
+
             return Page();
         }
     }

@@ -18,7 +18,7 @@ namespace startBank.Pages.Account
             _accountService = accountService;
         }
         [Range(100, 10000)]
-
+        [Required]
         public decimal Amount { get; set; }
         public string Comment { get; set; }
 
@@ -43,21 +43,29 @@ namespace startBank.Pages.Account
 
             var status = _accountService.Withdraw(accountId, Amount);
 
-            if (status == IAccountService.ErrorMessage.OK)
+            if (ModelState.IsValid)
             {
-                SuccessMessage = "Withdrawal successful!Your money has been withdrawn from your account.";
-                ShowSuccessMessage = true;
+
+                if (status == IAccountService.ErrorMessage.OK)
+                {
+                    SuccessMessage = "Withdrawal successful!Your money has been withdrawn from your account.";
+                    ShowSuccessMessage = true;
+                }
+
+                if (status == IAccountService.ErrorMessage.IncorrectAmount)
+                { ModelState.AddModelError("Amount", "Please enter a correct amount (100-10000)!"); }
+
+                if (WithdrawDate.AddHours(1) < DateTime.Now)
+                { ModelState.AddModelError("WithdrawDate", "Cannot withdraw money in the past!"); }
             }
 
-            if (status == IAccountService.ErrorMessage.IncorrectAmount)
-            { ModelState.AddModelError("Amount", "Please enter a correct amount (100-10000)!"); }
 
-            if (WithdrawDate.AddHours(1) < DateTime.Now)
-            { ModelState.AddModelError("WithdrawDate", "Cannot withdraw money in the past!"); }
-
+            if (status == IAccountService.ErrorMessage.OK)
+            {
+                TempData["SuccessMessage"] = "Withdraw successful!";
+            }
             var accountDb = _accountService.GetAccount(accountId);
             Balance = accountDb.Balance;
-            TempData["SuccessMessage"] = "Withdraw successful!";
 
             return Page();
         }
