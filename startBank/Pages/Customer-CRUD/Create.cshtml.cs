@@ -1,12 +1,15 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using startBank.BankAppDatas;
 using startBank.Data;
 using startBank.Models;
+using System.Data;
 
 namespace startBank.Pages.Customer_CRUD
 {
+    [Authorize(Roles = "Cashier")]
     public class CreateModel : PageModel
     {
 
